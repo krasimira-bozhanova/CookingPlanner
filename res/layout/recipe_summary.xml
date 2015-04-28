@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recipeSummaryLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/recipeSummaryVerticalLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/recipeSummaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="25sp" />
+
+            <it.sephiroth.android.library.widget.HListView
+                android:id="@+id/hListView1"
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:background="#11000000"
+                android:paddingBottom="20dip"
+                android:paddingTop="20dip" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

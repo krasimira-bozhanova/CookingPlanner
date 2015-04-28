@@ -1,0 +1,42 @@
+[
+	{
+		"name": "baking",
+		"imageName": "baking"
+	},
+	{
+		"name": "beverages",
+		"imageName": "beverages"
+	},
+	{
+		"name": "fruits",
+		"imageName": "fruits"
+	},
+	{
+		"name": "vegetables",
+		"imageName": "vegetables"
+	},
+	{
+		"name": "spices",
+		"imageName": "spices"
+	},
+	{
+		"name": "dairy",
+		"imageName": "dairy"
+	},
+	{
+		"name": "meats",
+		"imageName": "meats"
+	},
+	{
+        "name": "sweets",
+        "imageName": "sweets"
+    },
+    {
+        "name": "fish and sea food",
+        "imageName": "fish"
+    },
+    {
+        "name": "others",
+        "imageName": "others"
+    }
+]

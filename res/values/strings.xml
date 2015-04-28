@@ -3,6 +3,9 @@
 
     <string name="app_name">CookingPlanner</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="doyouhave">"Do you have?"</string>
+    <string name="hint">"Input ingredient"</string>
+    <string name="youhave">"You have"</string>
+    <string name="search">"Go"</string>
 
 </resources>

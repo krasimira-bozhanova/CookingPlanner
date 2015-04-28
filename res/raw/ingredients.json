@@ -1,0 +1,519 @@
+[
+    {
+        "name":"tomatoes",
+        "type":
+        {
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"potatoes",
+        "type":
+        {
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"salt",
+        "type":
+        {
+            "name": "spices"
+        }
+    },
+    {
+        "name":"sugar",
+        "type":     {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"eggs",
+        "type":
+        {
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"garlic",
+        "type": 
+        {
+            "name":"vegetables"
+        }
+    },
+    {
+        "name":"water",
+        "type": {
+            "name":"beverages"
+            }
+    },
+    {
+        "name":"flour",
+        "type": {
+            "name": "baking"
+            }
+    },
+    {
+        "name":"chicken legs",
+        "type": {
+            "name":"meats"
+            }
+    },
+    {
+        "name":"chicken breasts",
+        "type": {
+            "name":"meats"
+            }
+    },
+    {
+        "name":"pork",
+        "type":
+        {
+            "name":"meats"
+        }
+    },
+    {
+        "name":"olive oil",
+        "type":
+        {
+            "name":"others"
+        }
+    },
+    {
+        "name":"sunflower oil",
+        "type":
+        {
+            "name":"others"
+            }
+    },
+    {
+        "name":"almonds",
+        "type":
+        {
+            "name":"others"
+            }
+    },
+    {
+        "name":"cucumbers",
+        "type":
+        {
+            "name":"vegetables"
+            }
+    },
+    {
+        "name":"lemons",
+        "type":
+        {
+            "name":"fruits"
+        }
+    },
+    {
+        "name":"oranges",
+        "type":
+        {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"avocados",
+        "type":
+        {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"beer",
+        "type":
+        {
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"rome",
+        "type":
+        {
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"white wine",
+        "type":
+        {
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"red wine",
+        "type":{
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"carrots",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"cabbage",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"basil",
+        "type":{
+            "name": "spices"
+        }
+    },
+    {
+        "name":"lettuce",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"bread",
+        "type":     {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"baguettes",
+        "type":     {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"vanilla extract",
+        "type":
+        {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"cocoa",
+        "type":
+        {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"white cheese",
+        "type":
+        {
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"blue cheese",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"cheese",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"minced meat",
+        "type": {
+            "name": "meats"
+        }
+    },
+    {
+        "name":"tomatoe juice",
+        "type":{
+            "name": "others"
+        }
+    },
+    {
+        "name":"yogurt",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"creme",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"trout",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"tuna",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"sardines",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"shrimps",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"salmon",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"mackerel",
+        "type":{
+            "name": "fish and sea food"
+        }
+    },
+    {
+        "name":"pineapple",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"asparagus",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"broccoli",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"peas",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"grapefruit",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"banana",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"mushrooms",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"green beans",
+        "type": {
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"apricots",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"capers",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"kiwi",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"mango",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"spinach",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"apples",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"cherries",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"onions",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"black olives",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"green olives",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"peanut",
+        "type":{
+            "name": "others"
+        }
+    },
+    {
+        "name":"strawberries",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"hazelnuts",
+        "type":{
+            "name": "others"
+        }
+    },
+    {
+        "name":"butter",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"squash",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"milk",
+        "type":{
+            "name": "dairy"
+        }
+    },
+    {
+        "name":"cinnamon",
+        "type":{
+        "name": "spices"
+    }
+    },
+    {
+        "name":"bacon",
+        "type": {
+            "name": "meats"
+        }
+    },   
+    {
+        "name":"lime",
+        "type": {
+            "name": "fruits"
+        }
+    },
+    {
+        "name":"corn",
+        "type":{
+            "name": "others"
+        }
+    },
+    {
+        "name":"parsley",
+        "type":{
+            "name": "spices"
+        }
+    },
+    {
+        "name":"black pepper",
+        "type":{
+            "name": "spices"
+        }
+    },
+    {
+        "name":"white pepper",
+        "type":{
+            "name": "spices"
+        }
+    },
+    {
+        "name":"pepper",
+        "type":{
+            "name": "vegetables"
+        }
+    },
+    {
+        "name":"milk chocolate",
+        "type":{
+            "name": "sweets"
+        }
+    },
+    {
+        "name":"dark chocolate",
+        "type":{
+            "name": "sweets"
+        }
+    },
+    {
+        "name":"honey",
+        "type":{
+            "name": "sweets"
+        }
+    },
+    {
+        "name":"jam",
+        "type":{
+            "name": "sweets"
+        }
+    },
+    {
+        "name":"coffee",
+        "type":{
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"whiskey",
+        "type":{
+            "name": "beverages"
+        }
+    },
+    {
+        "name":"baking soda",
+        "type":     {
+            "name": "baking"
+        }
+    },
+    {
+        "name":"linguine pasta",
+        "type":     {
+            "name": "others"
+        }
+    }
+]
