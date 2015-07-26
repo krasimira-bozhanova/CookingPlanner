@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:taglist="http://schemas.android.com/apk/lib/bg.androidcourse.tagview.TagListView"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textNotAddedSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/doyouhave"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <AutoCompleteTextView
+        android:id="@+id/editTextSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint" >
+    </AutoCompleteTextView>
+
+    <LinearLayout
+        android:id="@+id/spinnerLinearLayoutSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <antistatic.spinnerwheel.WheelVerticalView
+            android:id="@+id/foodTypeViewSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="90dp"
+            android:minWidth="160dp" />
+
+        <antistatic.spinnerwheel.WheelVerticalView
+            android:id="@+id/missingIngredientsViewSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="90dp"
+            android:minWidth="150dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textViewAddedSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/youhave"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/searchViewSearch"
+            android:layout_below="@+id/textViewAddedSearch" >
+
+            <bg.fmi.cookingplanner.search.views.tags.TagListView
+                android:id="@+id/addedIngredientViewSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/searchViewSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/search" >
+        </Button>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From CookingPlanner:
+* .gitignore
+* ic_launcher-web.png
+* proguard-project.txt
+From TagListView:
+* .gitignore
+* .idea/
+* .idea/.name
+* .idea/ant.xml
+* .idea/compiler.xml
+* .idea/encodings.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* README
+* android-tag-view.iml
+* build.properties
+* build.xml
+* out/
+* out/production/
+* out/production/android-tag-view/
+* out/production/android-tag-view/android-tag-view.apk
+* out/production/android-tag-view/android-tag-view.apk.res
+* out/production/android-tag-view/android-tag-view.apk.unaligned
+* out/production/android-tag-view/classes.dex
+* out/production/android-tag-view/org/
+* out/production/android-tag-view/org/codeandmagic/
+* out/production/android-tag-view/org/codeandmagic/android/
+* out/production/android-tag-view/org/codeandmagic/android/R$attr.class
+* out/production/android-tag-view/org/codeandmagic/android/R$color.class
+* out/production/android-tag-view/org/codeandmagic/android/R$drawable.class
+* out/production/android-tag-view/org/codeandmagic/android/R$id.class
+* out/production/android-tag-view/org/codeandmagic/android/R$layout.class
+* out/production/android-tag-view/org/codeandmagic/android/R$string.class
+* out/production/android-tag-view/org/codeandmagic/android/R$styleable.class
+* out/production/android-tag-view/org/codeandmagic/android/R.class
+* out/production/android-tag-view/org/codeandmagic/android/TagListView$LayoutParams.class
+* out/production/android-tag-view/org/codeandmagic/android/TagListView.class
+* out/production/android-tag-view/org/codeandmagic/android/TagListViewActivity.class
+* out/production/android-tag-view/org/codeandmagic/android/TagView.class
+* proguard.cfg
+From library:
+* build.gradle
+* gradle.properties
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.1.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In Spinner:
+* AndroidManifest.xml => spinner/src/main/AndroidManifest.xml
+* assets/ => spinner/src/main/assets
+* java/ => spinner/src/main/java/
+* libs/nineoldandroids-2.2.0.jar => spinner/libs/nineoldandroids-2.2.0.jar
+* res/ => spinner/src/main/res/
+In TagListView:
+* AndroidManifest.xml => tagListView/src/main/AndroidManifest.xml
+* res/ => tagListView/src/main/res/
+* src/ => tagListView/src/main/java
+In library:
+* AndroidManifest.xml => library/src/main/AndroidManifest.xml
+* res/ => library/src/main/res/
+* src/main/java/ => library/src/main/java/
+In CookingPlanner:
+* AndroidManifest.xml => cookingPlanner/src/main/AndroidManifest.xml
+* assets/ => cookingPlanner/src/main/assets
+* libs/jackson-all-1.9.0.jar => cookingPlanner/libs/jackson-all-1.9.0.jar
+* lint.xml => cookingPlanner/lint.xml
+* res/ => cookingPlanner/src/main/res/
+* src/ => cookingPlanner/src/main/java/
+* shrimp_pasta_3.JPG => shrimp_pasta_3.jpg
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
