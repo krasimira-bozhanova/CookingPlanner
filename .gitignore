@@ -1,4 +1,7 @@
 .classpath
-bin/
-gen/
-
+build/
+library/
+spinner/
+tagListView/
+cookingPlanner/build
+cookingPlanner/libs
