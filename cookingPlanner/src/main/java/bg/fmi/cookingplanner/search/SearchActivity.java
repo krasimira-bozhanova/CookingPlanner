@@ -18,14 +18,15 @@ import bg.fmi.cookingplanner.data.tables.IngredientData;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Ingredient;
 import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.util.Utils;
-import bg.fmi.cookingplanner.search.view.ExistingIngredients;
-import bg.fmi.cookingplanner.search.view.MissingIngredients;
+import bg.fmi.cookingplanner.search.view.existing.ExistingIngredientsView;
+import bg.fmi.cookingplanner.search.view.missing.MissingIngredientsView;
 
 public class SearchActivity extends FragmentActivity {
 
-    private bg.fmi.cookingplanner.search.view.View existingIngredientsView;
-    private bg.fmi.cookingplanner.search.view.View missingIngredientsView;
+    private SearchIngredientsView existingIngredientsView;
+    private SearchIngredientsView missingIngredientsView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class SearchActivity extends FragmentActivity {
                     .getSerializable("added-ingredients");
         }
 
-        existingIngredientsView = new ExistingIngredients(this, currentExistingIngredients);
-        missingIngredientsView = new MissingIngredients(this, currentMissingIngredients);
+        existingIngredientsView = new ExistingIngredientsView(this, currentExistingIngredients);
+        missingIngredientsView = new MissingIngredientsView(this, currentMissingIngredients);
         existingIngredientsView.setOppositeView(missingIngredientsView);
         missingIngredientsView.setOppositeView(existingIngredientsView);
 

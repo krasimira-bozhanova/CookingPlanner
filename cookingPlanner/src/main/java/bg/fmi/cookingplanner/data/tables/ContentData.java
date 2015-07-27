@@ -100,7 +100,7 @@ public class ContentData extends Data {
         for (int i = 0; i < contentLength; i++) {
             values.put("recipe_id", recipe_id);
             long ingredientId = IngredientData.getInstance()
-                    .getIngredient(contentUnits[i].getIngredient().getName())
+                    .getIngredient(contentUnits[i].getIngredient())
                     .getId();
             values.put("ingredient_id", ingredientId);
             IngredientData.getInstance().increaseRating(ingredientId);

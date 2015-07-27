@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.search.view;
+package bg.fmi.cookingplanner.search.view.existing;
 
 import android.app.Activity;
 import android.view.View;
@@ -7,21 +7,22 @@ import java.util.List;
 
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.search.view.tags.TagListView;
-import bg.fmi.cookingplanner.search.view.tags.TagView;
+import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
+import bg.fmi.cookingplanner.search.view.existing.tags.TagListView;
+import bg.fmi.cookingplanner.search.view.existing.tags.TagView;
 
 
 /**
  * Created by krasimira on 15-7-23.
  */
-public class ExistingIngredients implements bg.fmi.cookingplanner.search.view.View {
+public class ExistingIngredientsView extends SearchIngredientsView {
 
     private final List<Ingredient> ingredients;
     private final TagListView view;
     private final Activity context;
-    private bg.fmi.cookingplanner.search.view.View oppositeView;
+    private SearchIngredientsView oppositeView;
 
-    public ExistingIngredients(Activity context, List<Ingredient> ingredients) {
+    public ExistingIngredientsView(Activity context, List<Ingredient> ingredients) {
         this.ingredients = ingredients;
         this.context = context;
         this.view = (TagListView) context.findViewById(R.id.addedIngredientViewSearch);;
@@ -31,7 +32,7 @@ public class ExistingIngredients implements bg.fmi.cookingplanner.search.view.Vi
         }
     }
 
-    public void setOppositeView(bg.fmi.cookingplanner.search.view.View oppositeView) {
+    public void setOppositeView(SearchIngredientsView oppositeView) {
         this.oppositeView = oppositeView;
     }
 

@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.search.view.tags;
+package bg.fmi.cookingplanner.search.view.existing.tags;
 
 import java.util.ArrayList;
 

@@ -26,7 +26,7 @@ public class ResultsListMealTypeFragment extends Fragment {
 
         if (allRecipes != null) {
             MealType mealType = (MealType) getArguments().getSerializable("mealType");
-            List<Recipe> filteredRecipes = new ArrayList<>();
+            List<Recipe> filteredRecipes = new ArrayList<Recipe>();
             if (mealType.isNeutral()) {
                 filteredRecipes.addAll(allRecipes);
             } else {

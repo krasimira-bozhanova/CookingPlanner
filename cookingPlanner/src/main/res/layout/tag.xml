@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<bg.fmi.cookingplanner.search.view.tags.TagView
+<bg.fmi.cookingplanner.search.view.existing.tags.TagView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tag="http://schemas.android.com/apk/lib/org.codeandmagic.android"
 	android:layout_width="wrap_content"

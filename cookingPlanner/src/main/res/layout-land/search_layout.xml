@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <bg.fmi.cookingplanner.search.view.tags.TagListView
+                <bg.fmi.cookingplanner.search.view.existing.tags.TagListView
                     android:id="@+id/addedIngredientViewSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

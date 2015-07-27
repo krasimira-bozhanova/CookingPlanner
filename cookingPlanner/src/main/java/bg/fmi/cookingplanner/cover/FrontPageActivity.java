@@ -71,7 +71,7 @@ public class FrontPageActivity extends Activity {
 //        add.setOnClickListener(new OnClickListener() {
 //
 //            @Override
-//            public void onClick(View arg0) {
+//            public void onClick(SearchIngredientsView arg0) {
 //                Intent intent = new Intent(FrontPageActivity.this,
 //                        AddActivity.class);
 //                startActivity(intent);
