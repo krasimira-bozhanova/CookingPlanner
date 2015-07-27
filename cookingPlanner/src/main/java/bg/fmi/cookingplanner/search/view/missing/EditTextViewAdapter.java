@@ -1,8 +1,5 @@
 package bg.fmi.cookingplanner.search.view.missing;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.Gravity;
@@ -13,6 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Ingredient;
 

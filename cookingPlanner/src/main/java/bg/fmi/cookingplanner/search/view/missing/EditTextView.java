@@ -18,10 +18,10 @@ public class EditTextView {
     private final EditTextViewAdapter editTextViewAdapter;
 
     public EditTextView(Activity context, AdapterView.OnItemClickListener clickListener, final List<Ingredient> ingredients) {
-        textView = (AutoCompleteTextView) context.findViewById(R.id.editTextSearch);
-        textView.setThreshold(1);
 
         editTextViewAdapter = new EditTextViewAdapter(context, ingredients);
+        textView = (AutoCompleteTextView) context.findViewById(R.id.editTextSearch);
+        textView.setThreshold(1);
         textView.setAdapter(editTextViewAdapter);
 
         textView.setOnItemClickListener(clickListener);
