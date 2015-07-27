@@ -7,9 +7,9 @@ import android.content.DialogInterface;
 /**
  * Created by krasimira on 15-7-24.
  */
-public class Utils {
+public class AlertMessage {
 
-    public static void showMessage(Context context, String message) {
+    public static void show(Context context, String message) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
         alertDialogBuilder.setTitle("CookingPlanner");

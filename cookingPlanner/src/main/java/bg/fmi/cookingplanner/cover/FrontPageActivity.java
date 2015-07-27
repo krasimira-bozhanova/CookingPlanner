@@ -17,7 +17,7 @@ import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Recipe;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.SearchActivity;
-import bg.fmi.cookingplanner.util.Utils;
+import bg.fmi.cookingplanner.util.AlertMessage;
 
 public class FrontPageActivity extends Activity {
 
@@ -62,7 +62,7 @@ public class FrontPageActivity extends Activity {
                     intent.putExtras(argumentsForActivity);
                     startActivity(intent);
                 } else {
-                    Utils.showMessage(FrontPageActivity.this, "You have no favourite recipes yet");
+                    AlertMessage.show(FrontPageActivity.this, "You have no favourite recipes yet");
                 }
             }
         });

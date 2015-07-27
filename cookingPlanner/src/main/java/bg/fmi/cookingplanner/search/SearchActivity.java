@@ -1,8 +1,8 @@
 package bg.fmi.cookingplanner.search;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.data.tables.IngredientData;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Ingredient;
 import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
-import bg.fmi.cookingplanner.util.Utils;
 import bg.fmi.cookingplanner.search.view.existing.ExistingIngredientsView;
 import bg.fmi.cookingplanner.search.view.missing.MissingIngredientsView;
+import bg.fmi.cookingplanner.util.AlertMessage;
 
-public class SearchActivity extends FragmentActivity {
+public class SearchActivity extends Activity {
 
     private SearchIngredientsView existingIngredientsView;
     private SearchIngredientsView missingIngredientsView;
@@ -95,7 +95,7 @@ public class SearchActivity extends FragmentActivity {
             intent.putExtras(argumentsForActivity);
             startActivity(intent);
         } else {
-            Utils.showMessage(SearchActivity.this, "There are no recipes with these ingredients");
+            AlertMessage.show(SearchActivity.this, "There are no recipes with these ingredients");
         }
     }
 }
