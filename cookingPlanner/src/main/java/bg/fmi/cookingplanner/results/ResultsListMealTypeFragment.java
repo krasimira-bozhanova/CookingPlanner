@@ -26,13 +26,12 @@ public class ResultsListMealTypeFragment extends Fragment {
 
         if (allRecipes != null) {
             MealType mealType = (MealType) getArguments().getSerializable("mealType");
-            List<Recipe> filteredRecipes;
-            if (mealType == null) {
-                filteredRecipes = new ArrayList<Recipe>(allRecipes);
+            List<Recipe> filteredRecipes = new ArrayList<>();
+            if (mealType.isNeutral()) {
+                filteredRecipes.addAll(allRecipes);
             } else {
-                filteredRecipes = new ArrayList<Recipe>();
                 for (Recipe recipe: allRecipes) {
-                    if (recipe.getMealType().getId() == mealType.getId()) {
+                    if (recipe.getMealType().equals(mealType)) {
                         filteredRecipes.add(recipe);
                     }
                 }

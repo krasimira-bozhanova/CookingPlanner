@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentManager;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.tables.MealTypeData;
 import bg.fmi.cookingplanner.model.MealType;
-import bg.fmi.cookingplanner.utils.FragmentTabListener;
+import bg.fmi.cookingplanner.util.FragmentTabListener;
 
 public class ResultsListActivity extends FragmentActivity {
 
@@ -25,7 +25,7 @@ public class ResultsListActivity extends FragmentActivity {
 
         tabToType.put(
                 actionBar.newTab().setText("All"),
-                null);
+                MealType.getNeutralMealType());
         tabToType.put(
                 actionBar.newTab().setText("Appetizer"),
                 MealTypeData.getInstance().getTypeWithName("appetizer"));

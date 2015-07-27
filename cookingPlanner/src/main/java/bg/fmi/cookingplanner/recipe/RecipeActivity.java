@@ -12,7 +12,7 @@ import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.recipe.tab.RecipeContentFragment;
 import bg.fmi.cookingplanner.recipe.tab.RecipeStagesFragment;
 import bg.fmi.cookingplanner.recipe.tab.RecipeSummaryFragment;
-import bg.fmi.cookingplanner.utils.FragmentTabListener;
+import bg.fmi.cookingplanner.util.FragmentTabListener;
 
 public class RecipeActivity extends FragmentActivity {
 

@@ -163,15 +163,15 @@ public class RecipeData extends Data {
                 servings, isFavourite);
     }
 
-    public int addToFavourites(long recipeId) {
-        String strFilter = "_id=" + recipeId;
+    public int addToFavourites(Recipe recipe) {
+        String strFilter = "_id=" + recipe.getId();
         ContentValues args = new ContentValues();
         args.put("is_favourite", 1);
         return database.update(getTableName(), args, strFilter, null);
     }
 
-    public int removeFromFavourites(long recipeId) {
-        String strFilter = "_id=" + recipeId;
+    public int removeFromFavourites(Recipe recipe) {
+        String strFilter = "_id=" + recipe.getId();
         ContentValues args = new ContentValues();
         args.put("is_favourite", 0);
         return database.update(getTableName(), args, strFilter, null);

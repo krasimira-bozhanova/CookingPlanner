@@ -73,8 +73,8 @@ public class IngredientData extends Data {
         ContentValues values = new ContentValues();
         values.put("name", ingredient.getName());
         values.put("rating", ingredient.getRating());
-        long typeId = FoodTypeData.getInstance().getFoodTypeWithName(
-                ingredient.getType().getName()).getId();
+        long typeId = FoodTypeData.getInstance().getFoodType(
+                ingredient.getType()).getId();
         values.put("type_id", typeId);
         long ingredient_id = database.insert(getTableName(), null, values);
         return ingredient_id;
@@ -138,7 +138,7 @@ public class IngredientData extends Data {
         return ingredientsResult;
     }
 
-    public Ingredient getIngredient(String ingredientName) {
+    public Ingredient getIngredient(Ingredient ingredientName) {
         Cursor cursor = database.rawQuery(
                 "select * from "
                 + getTableName()

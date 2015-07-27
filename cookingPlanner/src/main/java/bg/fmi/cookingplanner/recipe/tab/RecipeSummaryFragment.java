@@ -138,7 +138,7 @@ public class RecipeSummaryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int result = RecipeData.getInstance().addToFavourites(
-                        recipe.getId());
+                        recipe);
                 String message = "The recipe is succesfully added to favourites";
                 if (result == 0) {
                     message = "There is a problem with adding the recipe to favourites";
@@ -171,7 +171,7 @@ public class RecipeSummaryFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                int result = RecipeData.getInstance().removeFromFavourites(recipe.getId());
+                int result = RecipeData.getInstance().removeFromFavourites(recipe);
                 String message = "The recipe is succesfully removed from favourites";
                 if (result == 0) {
                     message = "There is a problem with removing the recipe from favourites";

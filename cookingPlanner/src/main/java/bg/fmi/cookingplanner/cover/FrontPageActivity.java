@@ -17,7 +17,7 @@ import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Recipe;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.SearchActivity;
-import bg.fmi.cookingplanner.utils.Utils;
+import bg.fmi.cookingplanner.util.Utils;
 
 public class FrontPageActivity extends Activity {
 

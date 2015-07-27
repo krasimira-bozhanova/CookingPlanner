@@ -18,7 +18,7 @@ import bg.fmi.cookingplanner.data.tables.IngredientData;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Ingredient;
 import bg.fmi.cookingplanner.model.Recipe;
-import bg.fmi.cookingplanner.utils.Utils;
+import bg.fmi.cookingplanner.util.Utils;
 import bg.fmi.cookingplanner.search.view.ExistingIngredients;
 import bg.fmi.cookingplanner.search.view.MissingIngredients;
 

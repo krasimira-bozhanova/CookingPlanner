@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.utils;
+package bg.fmi.cookingplanner.util;
 
 import android.app.AlertDialog;
 import android.content.Context;

@@ -43,7 +43,8 @@ public class FoodTypeData extends Data {
         return instance;
     }
 
-    public FoodType getFoodTypeWithName(String name) {
+    public FoodType getFoodType(FoodType foodType) {
+        String name = foodType.getName();
         Cursor cursor = database.rawQuery(
                 "select * from "
                 + getTableName()

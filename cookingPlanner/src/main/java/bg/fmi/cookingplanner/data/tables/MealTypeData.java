@@ -16,7 +16,7 @@ public class MealTypeData extends Data {
     public String getCreateTableStatement() {
         return "CREATE TABLE IF NOT EXISTS "
                 + getTableName() + "(_id integer primary key autoincrement, "
-                + "name text not null" + ");";
+                + "name text unique not null" + ");";
     }
 
     @Override
