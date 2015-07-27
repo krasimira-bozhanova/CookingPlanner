@@ -7,8 +7,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.models.Measurement;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Measurement;
+import bg.fmi.cookingplanner.model.Model;
 
 public class MeasurementData extends Data {
 

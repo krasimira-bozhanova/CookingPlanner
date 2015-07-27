@@ -2,8 +2,8 @@ package bg.fmi.cookingplanner.data.tables;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.models.Description;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Description;
+import bg.fmi.cookingplanner.model.Model;
 
 public class DescriptionData extends Data {
 

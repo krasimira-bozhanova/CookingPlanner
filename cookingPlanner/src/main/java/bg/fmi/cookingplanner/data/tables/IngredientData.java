@@ -9,9 +9,9 @@ import java.util.Map;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.models.FoodType;
-import bg.fmi.cookingplanner.models.Ingredient;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.FoodType;
+import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.model.Model;
 
 public class IngredientData extends Data {
 

@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.models.MealType;
-import bg.fmi.cookingplanner.models.Recipe;
+import bg.fmi.cookingplanner.model.MealType;
+import bg.fmi.cookingplanner.model.Recipe;
 
 public class ResultsListMealTypeFragment extends Fragment {
 

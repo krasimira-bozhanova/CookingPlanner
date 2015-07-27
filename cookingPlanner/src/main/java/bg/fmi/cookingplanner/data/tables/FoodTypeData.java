@@ -6,8 +6,8 @@ import java.util.List;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.models.FoodType;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.FoodType;
+import bg.fmi.cookingplanner.model.Model;
 
 public class FoodTypeData extends Data {
 

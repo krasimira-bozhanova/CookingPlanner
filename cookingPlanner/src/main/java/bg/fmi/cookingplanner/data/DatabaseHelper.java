@@ -21,7 +21,7 @@ import bg.fmi.cookingplanner.data.tables.IngredientData;
 import bg.fmi.cookingplanner.data.tables.MeasurementData;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.data.tables.MealTypeData;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Model;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "COOKINGDB";

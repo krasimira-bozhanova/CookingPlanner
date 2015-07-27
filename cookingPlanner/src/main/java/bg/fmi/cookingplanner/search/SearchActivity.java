@@ -16,16 +16,16 @@ import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.data.tables.IngredientData;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
-import bg.fmi.cookingplanner.models.Ingredient;
-import bg.fmi.cookingplanner.models.Recipe;
+import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.model.Recipe;
 import bg.fmi.cookingplanner.utils.Utils;
-import bg.fmi.cookingplanner.search.views.ExistingIngredientsView;
-import bg.fmi.cookingplanner.search.views.MissingIngredientsView;
+import bg.fmi.cookingplanner.search.view.ExistingIngredients;
+import bg.fmi.cookingplanner.search.view.MissingIngredients;
 
 public class SearchActivity extends FragmentActivity {
 
-    private bg.fmi.cookingplanner.search.views.View existingIngredientsView;
-    private bg.fmi.cookingplanner.search.views.View missingIngredientsView;
+    private bg.fmi.cookingplanner.search.view.View existingIngredientsView;
+    private bg.fmi.cookingplanner.search.view.View missingIngredientsView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,8 @@ public class SearchActivity extends FragmentActivity {
                     .getSerializable("added-ingredients");
         }
 
-        existingIngredientsView = new ExistingIngredientsView(this, currentExistingIngredients);
-        missingIngredientsView = new MissingIngredientsView(this, currentMissingIngredients);
+        existingIngredientsView = new ExistingIngredients(this, currentExistingIngredients);
+        missingIngredientsView = new MissingIngredients(this, currentMissingIngredients);
         existingIngredientsView.setOppositeView(missingIngredientsView);
         missingIngredientsView.setOppositeView(existingIngredientsView);
 

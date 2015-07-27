@@ -65,7 +65,7 @@
             android:layout_above="@+id/searchViewSearch"
             android:layout_below="@+id/textViewAddedSearch" >
 
-            <bg.fmi.cookingplanner.search.views.tags.TagListView
+            <bg.fmi.cookingplanner.search.view.tags.TagListView
                 android:id="@+id/addedIngredientViewSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

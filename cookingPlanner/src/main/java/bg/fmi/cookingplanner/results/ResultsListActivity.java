@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.tables.MealTypeData;
-import bg.fmi.cookingplanner.models.MealType;
+import bg.fmi.cookingplanner.model.MealType;
 import bg.fmi.cookingplanner.utils.FragmentTabListener;
 
 public class ResultsListActivity extends FragmentActivity {

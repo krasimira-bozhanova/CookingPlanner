@@ -6,8 +6,8 @@ import java.util.List;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.models.MealType;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.MealType;
+import bg.fmi.cookingplanner.model.Model;
 
 public class MealTypeData extends Data {
     private static MealTypeData instance;

@@ -5,8 +5,8 @@ import java.util.List;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.models.Image;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Image;
+import bg.fmi.cookingplanner.model.Model;
 
 public class ImageData extends Data {
 

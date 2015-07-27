@@ -7,12 +7,12 @@ import java.util.Map;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.models.Content;
-import bg.fmi.cookingplanner.models.Content.ContentUnit;
-import bg.fmi.cookingplanner.models.FoodType;
-import bg.fmi.cookingplanner.models.Ingredient;
-import bg.fmi.cookingplanner.models.Measurement;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Content;
+import bg.fmi.cookingplanner.model.Content.ContentUnit;
+import bg.fmi.cookingplanner.model.FoodType;
+import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.model.Measurement;
+import bg.fmi.cookingplanner.model.Model;
 
 public class ContentData extends Data {
 

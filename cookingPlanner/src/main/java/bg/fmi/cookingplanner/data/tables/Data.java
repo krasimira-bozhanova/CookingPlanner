@@ -3,7 +3,7 @@ package bg.fmi.cookingplanner.data.tables;
 import java.util.List;
 
 import android.database.sqlite.SQLiteDatabase;
-import bg.fmi.cookingplanner.models.Model;
+import bg.fmi.cookingplanner.model.Model;
 
 public abstract class Data {
 

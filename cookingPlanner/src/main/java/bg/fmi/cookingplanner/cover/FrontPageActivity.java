@@ -14,7 +14,7 @@ import java.util.List;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.DatabaseHelper;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
-import bg.fmi.cookingplanner.models.Recipe;
+import bg.fmi.cookingplanner.model.Recipe;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.SearchActivity;
 import bg.fmi.cookingplanner.utils.Utils;
