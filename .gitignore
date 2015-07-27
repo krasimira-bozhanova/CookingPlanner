@@ -1,4 +1,8 @@
 .classpath
+.idea/libraries
+.idea/workspace.xml
+.grade/
+captures/
 build/
 library/
 spinner/
