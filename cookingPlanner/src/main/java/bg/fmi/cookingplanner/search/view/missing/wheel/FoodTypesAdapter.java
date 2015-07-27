@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.search.adapter;
+package bg.fmi.cookingplanner.search.view.missing.wheel;
 
 import java.util.List;
 

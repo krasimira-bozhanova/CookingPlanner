@@ -12,7 +12,6 @@ import antistatic.spinnerwheel.OnWheelClickedListener;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.FoodType;
 import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.search.adapter.MissingIngredientsAdapter;
 
 /**
  * Created by krasimira on 15-7-27.
@@ -20,16 +19,16 @@ import bg.fmi.cookingplanner.search.adapter.MissingIngredientsAdapter;
 public class IngredientsWheel {
 
     private final AbstractWheel ingredientsView;
-    private final Map<FoodType, MissingIngredientsAdapter> ingredientsAdaptersForType =
-            new HashMap<FoodType, MissingIngredientsAdapter>();
+    private final Map<FoodType, IngredientsAdapter> ingredientsAdaptersForType =
+            new HashMap<FoodType, IngredientsAdapter>();
 
     public IngredientsWheel(Activity context, OnWheelClickedListener clickedListener, final List<Ingredient> ingredients) {
 
         for (Ingredient ingredient: ingredients) {
             FoodType foodType = ingredient.getType();
             if (!ingredientsAdaptersForType.containsKey(foodType)) {
-                MissingIngredientsAdapter adapter =
-                        new MissingIngredientsAdapter(context, new ArrayList<Ingredient>());
+                IngredientsAdapter adapter =
+                        new IngredientsAdapter(context, new ArrayList<Ingredient>());
                 adapter.setTextSize(18);
                 ingredientsAdaptersForType.put(foodType, adapter);
             }
@@ -47,7 +46,7 @@ public class IngredientsWheel {
 
     public void markIngredientAsExisting(Ingredient ingredient) {
         FoodType type = ingredient.getType();
-        MissingIngredientsAdapter adapter = ingredientsAdaptersForType.get(type);
+        IngredientsAdapter adapter = ingredientsAdaptersForType.get(type);
         adapter.remove(ingredient);
 
         if (ingredientsView.getViewAdapter() == adapter) {
@@ -61,7 +60,7 @@ public class IngredientsWheel {
     }
 
     public void updateIngredients(FoodType currentFoodType) {
-        MissingIngredientsAdapter adapter = ingredientsAdaptersForType.get(currentFoodType);
+        IngredientsAdapter adapter = ingredientsAdaptersForType.get(currentFoodType);
         ingredientsView.setViewAdapter(adapter);
         if (adapter.getItemsCount() > 1)
             ingredientsView.setCurrentItem(1);

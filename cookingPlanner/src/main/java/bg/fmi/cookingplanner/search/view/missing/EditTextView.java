@@ -1,7 +1,6 @@
 package bg.fmi.cookingplanner.search.view.missing;
 
 import android.app.Activity;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 
@@ -9,7 +8,6 @@ import java.util.List;
 
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.search.adapter.EditTextViewAdapter;
 
 /**
  * Created by krasimira on 15-7-27.

@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.search.adapter;
+package bg.fmi.cookingplanner.search.view.missing.wheel;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import antistatic.spinnerwheel.adapters.AbstractWheelTextAdapter;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Ingredient;
 
-public class MissingIngredientsAdapter extends AbstractWheelTextAdapter {
+public class IngredientsAdapter extends AbstractWheelTextAdapter {
     // Countries names
     private List<Ingredient> ingredients;
 
     /**
      * Constructor
      */
-    public MissingIngredientsAdapter(Context context,
-                                     List<Ingredient> ingredients) {
+    public IngredientsAdapter(Context context,
+                              List<Ingredient> ingredients) {
         super(context, R.layout.list_ingredient, NO_RESOURCE);
         this.ingredients = ingredients;
     }

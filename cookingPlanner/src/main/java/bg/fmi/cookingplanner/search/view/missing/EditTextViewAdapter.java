@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.search.adapter;
+package bg.fmi.cookingplanner.search.view.missing;
 
 import java.util.ArrayList;
 import java.util.List;
