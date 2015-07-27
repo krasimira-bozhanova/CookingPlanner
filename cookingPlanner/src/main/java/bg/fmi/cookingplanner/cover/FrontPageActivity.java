@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
-import java.io.Serializable;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
@@ -17,7 +16,6 @@ import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Recipe;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.SearchActivity;
-import bg.fmi.cookingplanner.util.AlertMessage;
 
 public class FrontPageActivity extends Activity {
 
@@ -48,22 +46,11 @@ public class FrontPageActivity extends Activity {
 
         ImageButton favourites = (ImageButton) findViewById(R.id.toFavourites);
         favourites.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FrontPageActivity.this,
-                        ResultsListActivity.class);
                 List<Recipe> favouriteRecipes = RecipeData.getInstance().getFavouriteRecipes();
-
-                if (favouriteRecipes.size() > 0) {
-                    Bundle argumentsForActivity = new Bundle();
-                    argumentsForActivity.putSerializable("result-recipes",
-                            (Serializable) favouriteRecipes);
-                    intent.putExtras(argumentsForActivity);
-                    startActivity(intent);
-                } else {
-                    AlertMessage.show(FrontPageActivity.this, "You have no favourite recipes yet");
-                }
+                ResultsListActivity.start(FrontPageActivity.this, favouriteRecipes,
+                        "You have no favourite recipes yet");
             }
         });
 

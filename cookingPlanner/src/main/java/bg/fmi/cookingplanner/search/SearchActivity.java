@@ -86,16 +86,7 @@ public class SearchActivity extends Activity {
         List<Recipe> resultRecipes = RecipeData.getInstance()
                 .getRecipesIdsWithIngredients(existingIngredientsView.getIngredients());
 
-        if (resultRecipes.size() > 0) {
-            Intent intent = new Intent(this, ResultsListActivity.class);
-
-            Bundle argumentsForActivity = new Bundle();
-            argumentsForActivity.putSerializable("result-recipes",
-                    (Serializable) resultRecipes);
-            intent.putExtras(argumentsForActivity);
-            startActivity(intent);
-        } else {
-            AlertMessage.show(SearchActivity.this, "There are no recipes with these ingredients");
-        }
+        ResultsListActivity.start(this, resultRecipes,
+                "There are no recipes with these ingredients");
     }
 }
