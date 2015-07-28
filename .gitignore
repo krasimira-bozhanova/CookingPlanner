@@ -1,7 +1,7 @@
 .classpath
 .idea/libraries
 .idea/workspace.xml
-.grade/
+.gradle
 captures/
 build/
 library/
