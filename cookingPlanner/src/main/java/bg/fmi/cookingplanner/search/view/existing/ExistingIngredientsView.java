@@ -7,6 +7,7 @@ import java.util.List;
 
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.search.SearchBinderActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.existing.tags.TagListView;
 import bg.fmi.cookingplanner.search.view.existing.tags.TagView;
@@ -19,21 +20,16 @@ public class ExistingIngredientsView extends SearchIngredientsView {
 
     private final List<Ingredient> ingredients;
     private final TagListView view;
-    private final Activity context;
-    private SearchIngredientsView oppositeView;
+    private final SearchBinderActivity binder;
 
-    public ExistingIngredientsView(Activity context, List<Ingredient> ingredients) {
+    public ExistingIngredientsView(SearchBinderActivity context, List<Ingredient> ingredients) {
         this.ingredients = ingredients;
-        this.context = context;
-        this.view = (TagListView) context.findViewById(R.id.addedIngredientViewSearch);;
+        this.binder = context;
+        this.view = (TagListView) binder.findViewById(R.id.addedIngredientViewSearch);
 
         for (final Ingredient ingredient : ingredients) {
             view.addView(createTag(ingredient));
         }
-    }
-
-    public void setOppositeView(SearchIngredientsView oppositeView) {
-        this.oppositeView = oppositeView;
     }
 
     public void markIngredientAsExisting(Ingredient ingredient) {
@@ -43,7 +39,7 @@ public class ExistingIngredientsView extends SearchIngredientsView {
 
     public void markIngredientAsMissing(Ingredient ingredient) {
         ingredients.remove(ingredient);
-        oppositeView.markIngredientAsMissing(ingredient);
+        binder.markIngredientAsMissing(ingredient);
     }
 
     public List<Ingredient> getIngredients() {
@@ -51,7 +47,7 @@ public class ExistingIngredientsView extends SearchIngredientsView {
     }
 
     private TagView createTag(final Ingredient ingredient) {
-        final TagView tag = new TagView(context);
+        final TagView tag = new TagView(binder);
         tag.setText(ingredient.getName());
         tag.setOnClickListener(new View.OnClickListener() {
             @Override

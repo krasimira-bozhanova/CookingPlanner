@@ -1,7 +1,6 @@
 package bg.fmi.cookingplanner.search;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -21,9 +20,8 @@ import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.existing.ExistingIngredientsView;
 import bg.fmi.cookingplanner.search.view.missing.MissingIngredientsView;
-import bg.fmi.cookingplanner.util.AlertMessage;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends SearchBinderActivity {
 
     private SearchIngredientsView existingIngredientsView;
     private SearchIngredientsView missingIngredientsView;
@@ -49,8 +47,6 @@ public class SearchActivity extends Activity {
 
         existingIngredientsView = new ExistingIngredientsView(this, currentExistingIngredients);
         missingIngredientsView = new MissingIngredientsView(this, currentMissingIngredients);
-        existingIngredientsView.setOppositeView(missingIngredientsView);
-        missingIngredientsView.setOppositeView(existingIngredientsView);
 
         Button button = (Button) findViewById(R.id.searchViewSearch);
         button.setOnClickListener(new OnClickListener() {
@@ -88,5 +84,15 @@ public class SearchActivity extends Activity {
 
         ResultsListActivity.start(this, resultRecipes,
                 "There are no recipes with these ingredients");
+    }
+
+    @Override
+    public void markIngredientAsExisting(Ingredient ingredient) {
+        existingIngredientsView.markIngredientAsExisting(ingredient);
+    }
+
+    @Override
+    public void markIngredientAsMissing(Ingredient ingredient) {
+        missingIngredientsView.markIngredientAsMissing(ingredient);
     }
 }

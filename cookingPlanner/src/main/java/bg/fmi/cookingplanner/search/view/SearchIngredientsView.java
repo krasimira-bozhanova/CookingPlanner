@@ -12,5 +12,4 @@ public abstract class SearchIngredientsView {
     public abstract void markIngredientAsExisting(Ingredient ingredient);
     public abstract void markIngredientAsMissing(Ingredient ingredient);
     public abstract List<Ingredient> getIngredients();
-    public abstract void setOppositeView(SearchIngredientsView oppositeView);
 }

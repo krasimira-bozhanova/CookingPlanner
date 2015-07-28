@@ -11,6 +11,7 @@ import antistatic.spinnerwheel.OnWheelClickedListener;
 import antistatic.spinnerwheel.OnWheelScrollListener;
 import bg.fmi.cookingplanner.model.FoodType;
 import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.search.SearchBinderActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.missing.wheel.FoodTypesWheel;
 import bg.fmi.cookingplanner.search.view.missing.wheel.IngredientsWheel;
@@ -24,18 +25,15 @@ public class MissingIngredientsView extends SearchIngredientsView
     private final FoodTypesWheel foodTypesWheel;
     private final IngredientsWheel ingredientsWheel;
     private final EditTextView editTextView;
-    private SearchIngredientsView oppositeView;
+    private final SearchBinderActivity binder;
 
-    public MissingIngredientsView(Activity context, final List<Ingredient> ingredients) {
+    public MissingIngredientsView(SearchBinderActivity context, final List<Ingredient> ingredients) {
+        this.binder = context;
         foodTypesWheel = new FoodTypesWheel(context, this);
         ingredientsWheel = new IngredientsWheel(context, this, ingredients);
         editTextView = new EditTextView(context, this, ingredients);
 
         ingredientsWheel.updateIngredients(foodTypesWheel.getCurrentType());
-    }
-
-    public void setOppositeView(SearchIngredientsView oppositeView) {
-        this.oppositeView = oppositeView;
     }
 
     public List<Ingredient> getIngredients() {
@@ -50,7 +48,7 @@ public class MissingIngredientsView extends SearchIngredientsView
     public void markIngredientAsExisting(Ingredient ingredient) {
         ingredientsWheel.markIngredientAsExisting(ingredient);
         editTextView.markIngredientAsExisting(ingredient);
-        oppositeView.markIngredientAsExisting(ingredient);
+        binder.markIngredientAsExisting(ingredient);
     }
 
     @Override
