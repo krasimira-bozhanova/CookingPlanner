@@ -32,32 +32,27 @@ public class RecipeContentFragment extends RecipeFragment {
                 container, false);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.recipeLinearLayout);
         Content content = getRecipe().getContent();
-        Map<FoodType,List<ContentUnit>> contentForTypes = ContentData.getInstance().getContentForTypes(content);
+        Map<FoodType,List<ContentUnit>> contentForTypes =
+                ContentData.getInstance().getContentForTypes(content);
 
         for (FoodType type: contentForTypes.keySet()) {
-            LinearLayout typeLayout = new LinearLayout(getActivity());
-            typeLayout.setOrientation(LinearLayout.HORIZONTAL);
+            final LinearLayout typeLayout = (LinearLayout) inflater.inflate(
+                    R.layout.food_type, null);
 
-            TextView typeTextView = new TextView(getActivity());
+            TextView typeTextView = (TextView) typeLayout.findViewById(R.id.foodTypeTextView);
             typeTextView.setText(type.getName());
-            typeTextView.setTextSize(20);
-            typeTextView.setPadding(5, 0, 0, 0);
 
             String drawableName = type.getImageName();
             Drawable drawable = ResourcesUtils.getDrawable(getActivity(), drawableName);
 
-            ImageView imageView = new ImageView(getActivity());
+            ImageView imageView = (ImageView) typeLayout.findViewById(R.id.foodTypeImageView);
             imageView.setImageDrawable(drawable);
-            imageView.setLayoutParams(new LayoutParams(60, 60));
 
-            typeLayout.addView(imageView);
-            typeLayout.addView(typeTextView);
             linearLayout.addView(typeLayout);
 
             for (Content.ContentUnit contentUnit: contentForTypes.get(type)) {
-                StringBuilder builder = new StringBuilder("- ");
-                TextView textView = new TextView(getActivity());
-                textView.setPadding(40, 0, 0, 0);
+                StringBuilder builder = new StringBuilder();
+                TextView textView = (TextView) inflater.inflate(R.layout.recipe_stage, null);
 
                 double amount = contentUnit.getAmount();
                 if (amount != -1) {
@@ -75,7 +70,6 @@ public class RecipeContentFragment extends RecipeFragment {
                     builder.append("(" + contentUnit.getDescription() + ")");
                 }
                 textView.setText(builder.toString());
-                textView.setPadding(20, 20, 20, 20);
                 linearLayout.addView(textView);
             }
         }
