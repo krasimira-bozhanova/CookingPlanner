@@ -1,19 +1,17 @@
 package bg.fmi.cookingplanner.recipe.tab;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.Description;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.recipe.RecipeFragment;
 
-public class RecipeStagesFragment extends Fragment {
-
-    private Recipe recipe;
+public class RecipeStagesFragment extends RecipeFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,13 +31,5 @@ public class RecipeStagesFragment extends Fragment {
             linearLayout.addView(textView);
         }
         return view;
-    }
-
-    public Recipe getRecipe() {
-        if (this.recipe == null) {
-            Bundle extras = getActivity().getIntent().getExtras();
-            this.recipe = (Recipe) extras.getSerializable("recipe");
-        }
-        return this.recipe;
     }
 }

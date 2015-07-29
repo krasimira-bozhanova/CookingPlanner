@@ -1,19 +1,8 @@
 package bg.fmi.cookingplanner.recipe.tab;
 
-import bg.fmi.cookingplanner.util.AlertMessage;
-import bg.fmi.cookingplanner.util.ResourcesUtils;
-import it.sephiroth.android.library.widget.HListView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,14 +11,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.tables.RecipeData;
 import bg.fmi.cookingplanner.model.Image;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.recipe.RecipeFragment;
+import bg.fmi.cookingplanner.util.AlertMessage;
+import bg.fmi.cookingplanner.util.ResourcesUtils;
+import it.sephiroth.android.library.widget.HListView;
 
-public class RecipeSummaryFragment extends Fragment {
-
-    private Recipe recipe;
+public class RecipeSummaryFragment extends RecipeFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,14 +48,6 @@ public class RecipeSummaryFragment extends Fragment {
         setRecipeDetails(inflater, layout);
 
         return view;
-    }
-
-    public Recipe getRecipe() {
-        if (this.recipe == null) {
-            Bundle extras = getActivity().getIntent().getExtras();
-            this.recipe = (Recipe) extras.getSerializable("recipe");
-        }
-        return this.recipe;
     }
 
     class ImageViewAdapter extends ArrayAdapter<Image> {

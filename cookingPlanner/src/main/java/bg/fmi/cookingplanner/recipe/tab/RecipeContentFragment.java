@@ -1,11 +1,7 @@
 package bg.fmi.cookingplanner.recipe.tab;
 
-import java.util.List;
-import java.util.Map;
-
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +9,20 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.List;
+import java.util.Map;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.tables.ContentData;
 import bg.fmi.cookingplanner.model.Content;
 import bg.fmi.cookingplanner.model.Content.ContentUnit;
 import bg.fmi.cookingplanner.model.FoodType;
 import bg.fmi.cookingplanner.model.Measurement;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.recipe.RecipeFragment;
 import bg.fmi.cookingplanner.util.ResourcesUtils;
 
-public class RecipeContentFragment extends Fragment {
-
-    private Recipe recipe;
+public class RecipeContentFragment extends RecipeFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +44,7 @@ public class RecipeContentFragment extends Fragment {
             typeTextView.setPadding(5, 0, 0, 0);
 
             String drawableName = type.getImageName();
-            Drawable drawable = ResourcesUtils.getDrawable(this.getActivity(), drawableName);
+            Drawable drawable = ResourcesUtils.getDrawable(getActivity(), drawableName);
 
             ImageView imageView = new ImageView(getActivity());
             imageView.setImageDrawable(drawable);
@@ -63,11 +61,7 @@ public class RecipeContentFragment extends Fragment {
 
                 double amount = contentUnit.getAmount();
                 if (amount != -1) {
-                    if (amount % 1 == 0) {
-                        builder.append(Integer.toString((int)amount) + " ");
-                    } else {
-                        builder.append(Double.toString(amount) + " ");
-                    }
+                    builder.append(Double.toString(amount) + " ");
                 }
 
                 Measurement measurement = contentUnit.getMeasurement();
@@ -86,13 +80,5 @@ public class RecipeContentFragment extends Fragment {
             }
         }
         return view;
-    }
-
-    public Recipe getRecipe() {
-        if (this.recipe == null) {
-            Bundle extras = getActivity().getIntent().getExtras();
-            this.recipe = (Recipe) extras.getSerializable("recipe");
-        }
-        return this.recipe;
     }
 }
