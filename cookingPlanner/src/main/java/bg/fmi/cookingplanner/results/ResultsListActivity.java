@@ -46,7 +46,7 @@ public class ResultsListActivity extends FragmentActivity {
         for (ActionBar.Tab tab: tabToType.keySet()) {
             ResultsListMealTypeFragment fragmentTabType = new ResultsListMealTypeFragment();
             Bundle arguments = new Bundle();
-            arguments.putSerializable("type", tabToType.get(tab));
+            arguments.putSerializable("mealType", tabToType.get(tab));
             fragmentTabType.setArguments(arguments);
             tab.setTabListener(new FragmentTabListener(fragmentTabType, fragmentManager));
             actionBar.addTab(tab);
