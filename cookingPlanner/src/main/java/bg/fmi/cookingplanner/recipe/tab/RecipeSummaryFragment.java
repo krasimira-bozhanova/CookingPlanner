@@ -1,5 +1,6 @@
 package bg.fmi.cookingplanner.recipe.tab;
 
+import bg.fmi.cookingplanner.util.AlertMessage;
 import it.sephiroth.android.library.widget.HListView;
 
 import java.util.ArrayList;
@@ -147,22 +148,8 @@ public class RecipeSummaryFragment extends Fragment {
                     parent.removeView(addToFavourites);
                     parent.addView(removeFromFavourites);
                 }
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        getActivity());
-                alertDialogBuilder.setTitle("CookingPlanner");
-                alertDialogBuilder
-                        .setMessage(message)
-                        .setCancelable(false)
-                        .setNeutralButton("OK",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog,
-                                            int id) {
-                                        dialog.cancel();
-                                    }
-                                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+
+                AlertMessage.show(getActivity(), message);
             }
 
         });
@@ -180,22 +167,8 @@ public class RecipeSummaryFragment extends Fragment {
                         parent.removeView(removeFromFavourites);
                         parent.addView(addToFavourites);
                 }
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                        getActivity());
-                alertDialogBuilder.setTitle("CookingPlanner");
-                alertDialogBuilder
-                        .setMessage(message)
-                        .setCancelable(false)
-                        .setNeutralButton("OK",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog,
-                                            int id) {
-                                        dialog.cancel();
-                                    }
-                                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+
+                AlertMessage.show(getActivity(), message);
             }
 
         });
