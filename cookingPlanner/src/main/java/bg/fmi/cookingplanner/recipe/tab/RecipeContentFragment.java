@@ -20,6 +20,7 @@ import bg.fmi.cookingplanner.model.Content.ContentUnit;
 import bg.fmi.cookingplanner.model.FoodType;
 import bg.fmi.cookingplanner.model.Measurement;
 import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.util.ResourcesUtils;
 
 public class RecipeContentFragment extends Fragment {
 
@@ -44,12 +45,9 @@ public class RecipeContentFragment extends Fragment {
             typeTextView.setTextSize(20);
             typeTextView.setPadding(5, 0, 0, 0);
 
-            String mDrawableName = type.getImageName();
+            String drawableName = type.getImageName();
+            Drawable drawable = ResourcesUtils.getDrawable(this.getActivity(), drawableName);
 
-            int resourceId = getResources().getIdentifier(mDrawableName, "drawable",
-                    getActivity().getPackageName());
-
-            Drawable drawable = getResources().getDrawable(resourceId);
             ImageView imageView = new ImageView(getActivity());
             imageView.setImageDrawable(drawable);
             imageView.setLayoutParams(new LayoutParams(60, 60));

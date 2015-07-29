@@ -1,6 +1,7 @@
 package bg.fmi.cookingplanner.recipe.tab;
 
 import bg.fmi.cookingplanner.util.AlertMessage;
+import bg.fmi.cookingplanner.util.ResourcesUtils;
 import it.sephiroth.android.library.widget.HListView;
 
 import java.util.ArrayList;
@@ -103,13 +104,8 @@ public class RecipeSummaryFragment extends Fragment {
                 viewHolder = (ViewHolder) recipeImageView.getTag();
             }
 
-            Resources res = parent.getContext().getResources();
-            String mDrawableName = getItem(position).getName();
-
-            int resourceId = res.getIdentifier(mDrawableName, "drawable",
-                    parent.getContext().getPackageName());
-
-            Drawable drawable = res.getDrawable(resourceId);
+            String drawableName = getItem(position).getName();
+            Drawable drawable = ResourcesUtils.getDrawable(parent.getContext(), drawableName);
             viewHolder.imageView.setImageDrawable(drawable);
 
             return recipeImageView;
@@ -138,8 +134,7 @@ public class RecipeSummaryFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                int result = RecipeData.getInstance().addToFavourites(
-                        recipe);
+                int result = RecipeData.getInstance().addToFavourites(recipe);
                 String message = "The recipe is succesfully added to favourites";
                 if (result == 0) {
                     message = "There is a problem with adding the recipe to favourites";
@@ -189,11 +184,7 @@ public class RecipeSummaryFragment extends Fragment {
         textView.setText(text);
 
         String mDrawableName = imageName;
-
-        int resourceId = getResources().getIdentifier(mDrawableName,
-                "drawable", getActivity().getPackageName());
-
-        Drawable drawable = getResources().getDrawable(resourceId);
+        Drawable drawable = ResourcesUtils.getDrawable(getActivity(), mDrawableName);
         imageView.setImageDrawable(drawable);
         return view;
     }

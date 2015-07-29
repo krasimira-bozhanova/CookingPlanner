@@ -1,5 +1,6 @@
 package bg.fmi.cookingplanner.results;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -15,8 +16,10 @@ import android.widget.TextView;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
+import bg.fmi.cookingplanner.model.Image;
 import bg.fmi.cookingplanner.recipe.RecipeActivity;
 import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.util.ResourcesUtils;
 
 public class ResultsListAdapter extends BaseAdapter {
 
@@ -61,15 +64,12 @@ public class ResultsListAdapter extends BaseAdapter {
         }
 
         final Recipe currentRecipe = (Recipe) getItem(position);
+        final Context context = parent.getContext();
+        List<Image> recipeImages = currentRecipe.getImages();
 
-        if (currentRecipe.getImages().size() > 0) {
-            Resources res = parent.getContext().getResources();
-            String mDrawableName = currentRecipe.getImages().get(0).getName();
-
-            int resourceId = res.getIdentifier(mDrawableName, "drawable",
-                    parent.getContext().getPackageName());
-
-            Drawable drawable = res.getDrawable(resourceId);
+        if (recipeImages.size() > 0) {
+            String drawableName = recipeImages.get(0).getName();
+            Drawable drawable = ResourcesUtils.getDrawable(parent.getContext(), drawableName);
             viewHolder.imageView.setImageDrawable(drawable);
         }
 
@@ -78,13 +78,13 @@ public class ResultsListAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(parent.getContext(),
+                Intent intent = new Intent(context,
                         RecipeActivity.class);
                 Bundle argumentsForActivity = new Bundle();
                 argumentsForActivity.putSerializable("recipe",
                         currentRecipe);
                 intent.putExtras(argumentsForActivity);
-                parent.getContext().startActivity(intent);
+                context.startActivity(intent);
             }
         });
         return recipeListView;

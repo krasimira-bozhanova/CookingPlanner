@@ -14,6 +14,7 @@ import java.util.List;
 import antistatic.spinnerwheel.adapters.AbstractWheelTextAdapter;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.model.FoodType;
+import bg.fmi.cookingplanner.util.ResourcesUtils;
 
 
 public class FoodTypesAdapter extends AbstractWheelTextAdapter {
@@ -49,13 +50,8 @@ public class FoodTypesAdapter extends AbstractWheelTextAdapter {
 
         viewHolder.textView.setText(getItemText(position));
 
-        Resources res = parent.getContext().getResources();
         String mDrawableName = foodTypes.get(position).getImageName();
-
-        int resourceId = res.getIdentifier(mDrawableName, "drawable",
-                parent.getContext().getPackageName());
-
-        Drawable drawable = res.getDrawable(resourceId);
+        Drawable drawable = ResourcesUtils.getDrawable(parent.getContext(), mDrawableName);
         viewHolder.imageView.setImageDrawable(drawable);
 
         return foodTypesView;
