@@ -25,9 +25,8 @@ public class RecipeStagesFragment extends RecipeFragment {
 
         for (int i = 0; i < description.getStages().length; i++) {
             String stage = description.getStages()[i];
-            TextView textView = new TextView(getActivity());
+            TextView textView = (TextView) inflater.inflate(R.layout.recipe_stage, null);
             textView.setText(Integer.toString(i + 1) + ". " + stage);
-            textView.setPadding(20, 20, 20, 20);
             linearLayout.addView(textView);
         }
         return view;
