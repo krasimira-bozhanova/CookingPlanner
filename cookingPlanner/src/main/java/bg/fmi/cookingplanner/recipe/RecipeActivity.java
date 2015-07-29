@@ -16,18 +16,10 @@ import bg.fmi.cookingplanner.util.FragmentTabListener;
 
 public class RecipeActivity extends FragmentActivity {
 
-    protected Fragment summaryTab;
-    protected Fragment contentTab;
-    protected Fragment stagesTab;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragments);
-
-        this.summaryTab = new RecipeSummaryFragment();
-        this.contentTab = new RecipeContentFragment();
-        this.stagesTab = new RecipeStagesFragment();
 
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
