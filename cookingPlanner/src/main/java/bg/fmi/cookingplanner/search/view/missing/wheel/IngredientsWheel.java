@@ -29,7 +29,6 @@ public class IngredientsWheel {
             if (!ingredientsAdaptersForType.containsKey(foodType)) {
                 IngredientsAdapter adapter =
                         new IngredientsAdapter(context, new ArrayList<Ingredient>());
-                adapter.setTextSize(18);
                 ingredientsAdaptersForType.put(foodType, adapter);
             }
             ingredientsAdaptersForType.get(foodType).add(ingredient);
