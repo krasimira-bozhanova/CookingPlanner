@@ -1,6 +1,5 @@
 package bg.fmi.cookingplanner.search.view.missing;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -9,8 +8,8 @@ import java.util.List;
 import antistatic.spinnerwheel.AbstractWheel;
 import antistatic.spinnerwheel.OnWheelClickedListener;
 import antistatic.spinnerwheel.OnWheelScrollListener;
-import bg.fmi.cookingplanner.model.FoodType;
-import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.FoodType;
+import bg.fmi.cookingplanner.data.model.Ingredient;
 import bg.fmi.cookingplanner.search.SearchBinderActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.missing.wheel.FoodTypesWheel;

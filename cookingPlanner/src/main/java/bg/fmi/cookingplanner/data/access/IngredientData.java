@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 
 import java.util.ArrayList;
@@ -9,13 +9,15 @@ import java.util.Map;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.FoodType;
-import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.FoodType;
+import bg.fmi.cookingplanner.data.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class IngredientData extends Data {
 
     private static IngredientData instance;
+
+    private static final String TABLE_NAME = "INGREDIENTS";
 
     private IngredientData() {
     }
@@ -23,7 +25,7 @@ public class IngredientData extends Data {
     @Override
     public String getCreateTableStatement() {
         return "CREATE TABLE IF NOT EXISTS "
-                + getTableName() + "(_id integer primary key autoincrement, "
+                + TABLE_NAME + "(_id integer primary key autoincrement, "
                 + "name text not null, "
                 + "rating int not null, "
                 + "type_id int not null, "
@@ -32,7 +34,7 @@ public class IngredientData extends Data {
     }
     @Override
     public String getTableName() {
-        return "INGREDIENTS";
+        return TABLE_NAME;
     }
 
     @Override
@@ -47,10 +49,28 @@ public class IngredientData extends Data {
         return instance;
     }
 
+    @Override
+    public void createObjects(List<Model> objects) {
+        for (Model ingredient: objects) {
+            createIngredient((Ingredient) ingredient);
+        }
+    }
+
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        // TODO Auto-generated method stub
+        return (Class<T>) Ingredient.class;
+    }
+
+    @Override
+    public int getResourceJson() {
+        return R.raw.ingredients;
+    }
+
     public Ingredient getIngredient(long id) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
+                + TABLE_NAME
                 + " where _id = "
                 + id, null);
         cursor.moveToFirst();
@@ -62,13 +82,6 @@ public class IngredientData extends Data {
         return ingredient;
     }
 
-    @Override
-    public void createObjects(List<Model> objects) {
-        for (Model ingredient: objects) {
-            createIngredient((Ingredient) ingredient);
-        }
-    }
-
     public long createIngredient(Ingredient ingredient) {
         ContentValues values = new ContentValues();
         values.put("name", ingredient.getName());
@@ -76,14 +89,14 @@ public class IngredientData extends Data {
         long typeId = FoodTypeData.getInstance().getFoodType(
                 ingredient.getType()).getId();
         values.put("type_id", typeId);
-        long ingredient_id = database.insert(getTableName(), null, values);
+        long ingredient_id = database.insert(TABLE_NAME, null, values);
         return ingredient_id;
     }
 
     private int getRating(long ingredientId) {
         Cursor cursor = database.rawQuery(
                 "select rating from "
-                + getTableName()
+                + TABLE_NAME
                 + " where _id="
                 + ingredientId, null);
         cursor.moveToFirst();
@@ -95,7 +108,7 @@ public class IngredientData extends Data {
     public List<Ingredient> getAllIngredients() {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
+                + TABLE_NAME
                 + " order by rating desc", null);
         List<Ingredient> ingredientsResult = new ArrayList<Ingredient>();
         cursor.moveToFirst();
@@ -124,9 +137,9 @@ public class IngredientData extends Data {
     public List<Ingredient> getNextIngredientsWithHighestRating(int count) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
-                + " order by rating desc limit "
-                + count, null);
+                        + TABLE_NAME
+                        + " order by rating desc limit "
+                        + count, null);
         cursor.moveToFirst();
         List<Ingredient> ingredientsResult = new ArrayList<Ingredient>();
         while(!cursor.isAfterLast()) {
@@ -138,17 +151,17 @@ public class IngredientData extends Data {
         return ingredientsResult;
     }
 
-    public Ingredient getIngredient(Ingredient ingredientName) {
+    public Ingredient getIngredient(Ingredient ingredient) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
-                + " where name='"
-                + ingredientName + "'", null);
+                        + TABLE_NAME
+                        + " where name='"
+                        + ingredient.getName() + "'", null);
         cursor.moveToFirst();
 
-        Ingredient ingredient = constructIngredientFromCursor(cursor);
+        Ingredient fullIngredient = constructIngredientFromCursor(cursor);
         cursor.close();
-        return ingredient;
+        return fullIngredient;
     }
 
     public void increaseRating(long ingredientId) {
@@ -157,7 +170,7 @@ public class IngredientData extends Data {
 
         ContentValues args = new ContentValues();
         args.put("rating", ++currentRating);
-        database.update(getTableName(), args, strFilter, null);
+        database.update(TABLE_NAME, args, strFilter, null);
     }
 
     private Ingredient constructIngredientFromCursor(Cursor cursor) {
@@ -169,15 +182,4 @@ public class IngredientData extends Data {
         return new Ingredient(id, name, rating, type);
     }
 
-
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        // TODO Auto-generated method stub
-        return (Class<T>) Ingredient.class;
-    }
-
-    @Override
-    public int getResourceJson() {
-        return R.raw.ingredients;
-    }
 }

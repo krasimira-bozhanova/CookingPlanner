@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.model;
+package bg.fmi.cookingplanner.data.model;
 
 import java.io.Serializable;
 

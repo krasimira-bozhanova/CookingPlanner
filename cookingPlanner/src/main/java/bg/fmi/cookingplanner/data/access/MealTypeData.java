@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,22 +6,24 @@ import java.util.List;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.MealType;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.MealType;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class MealTypeData extends Data {
     private static MealTypeData instance;
+    private static final String TABLE_NAME = "MEALTYPES";
+
 
     @Override
     public String getCreateTableStatement() {
         return "CREATE TABLE IF NOT EXISTS "
-                + getTableName() + "(_id integer primary key autoincrement, "
+                + TABLE_NAME + "(_id integer primary key autoincrement, "
                 + "name text unique not null" + ");";
     }
 
     @Override
     public String getTableName() {
-        return "TYPES";
+        return TABLE_NAME;
     }
 
     @Override
@@ -36,18 +38,6 @@ public class MealTypeData extends Data {
         return instance;
     }
 
-    public MealType getTypeWithName(String name) {
-        Cursor cursor = database.rawQuery(
-                "select _id from "
-                + getTableName()
-                + " where name='"
-                + name + "'" , null);
-        cursor.moveToFirst();
-        long id = cursor.getLong(cursor.getColumnIndex("_id"));
-        cursor.close();
-        return new MealType(id, name);
-    }
-
     @Override
     public void createObjects(List<Model> objects) {
         for (Model type: objects) {
@@ -55,16 +45,27 @@ public class MealTypeData extends Data {
         }
     }
 
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        // TODO Auto-generated method stub
+        return (Class<T>) MealType.class;
+    }
+
+    @Override
+    public int getResourceJson() {
+        return R.raw.meal_types;
+    }
+
     public long createType(MealType mealType) {
         ContentValues values = new ContentValues();
         values.put("name", mealType.getName());
-        return database.insert(getTableName(), null, values);
+        return database.insert(TABLE_NAME, null, values);
     }
 
     public MealType getType(long id) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName() , null);
+                + TABLE_NAME , null);
         cursor.moveToFirst();
         String name = cursor.getString(cursor.getColumnIndex("name"));
         cursor.close();
@@ -74,7 +75,7 @@ public class MealTypeData extends Data {
     public List<MealType> getAllTypes() {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName(), null);
+                + TABLE_NAME, null);
         cursor.moveToFirst();
         List<MealType> typesResult = new ArrayList<MealType>();
         while(!cursor.isAfterLast()) {
@@ -91,7 +92,7 @@ public class MealTypeData extends Data {
     public long getTypeId(MealType mealType) {
         Cursor cursor = database.rawQuery(
                 "select _id from "
-                + getTableName()
+                + TABLE_NAME
                 + " where name='"
                 + mealType.getName() + "'", null);
         cursor.moveToFirst();
@@ -100,14 +101,15 @@ public class MealTypeData extends Data {
         return id;
     }
 
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        // TODO Auto-generated method stub
-        return (Class<T>) MealType.class;
-    }
-
-    @Override
-    public int getResourceJson() {
-        return R.raw.meal_types;
+    public MealType getTypeWithName(String name) {
+        Cursor cursor = database.rawQuery(
+                "select _id from "
+                        + TABLE_NAME
+                        + " where name='"
+                        + name + "'" , null);
+        cursor.moveToFirst();
+        long id = cursor.getLong(cursor.getColumnIndex("_id"));
+        cursor.close();
+        return new MealType(id, name);
     }
 }

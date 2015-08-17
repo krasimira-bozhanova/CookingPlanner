@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.data.tables.MealTypeData;
-import bg.fmi.cookingplanner.model.MealType;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.data.access.MealTypeData;
+import bg.fmi.cookingplanner.data.model.MealType;
+import bg.fmi.cookingplanner.data.model.Recipe;
 import bg.fmi.cookingplanner.util.AlertMessage;
 import bg.fmi.cookingplanner.util.FragmentTabListener;
 

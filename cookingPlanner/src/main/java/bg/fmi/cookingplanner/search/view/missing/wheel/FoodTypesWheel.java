@@ -5,8 +5,8 @@ import android.app.Activity;
 import antistatic.spinnerwheel.AbstractWheel;
 import antistatic.spinnerwheel.OnWheelScrollListener;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.data.tables.FoodTypeData;
-import bg.fmi.cookingplanner.model.FoodType;
+import bg.fmi.cookingplanner.data.access.FoodTypeData;
+import bg.fmi.cookingplanner.data.model.FoodType;
 
 /**
  * Created by krasimira on 15-7-27.

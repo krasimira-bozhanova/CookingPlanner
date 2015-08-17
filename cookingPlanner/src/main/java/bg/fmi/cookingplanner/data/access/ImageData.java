@@ -1,16 +1,17 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.model.Image;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.Image;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class ImageData extends Data {
 
     private static ImageData instance;
+    private static final String TABLE_NAME = "IMAGES";
 
     private ImageData() {
 
@@ -19,7 +20,7 @@ public class ImageData extends Data {
     @Override
     public String getCreateTableStatement() {
         return "CREATE TABLE IF NOT EXISTS "
-                + getTableName() + "(_id integer primary key autoincrement, "
+                + TABLE_NAME + "(_id integer primary key autoincrement, "
                 + "name text not null,"
                 + "recipe_id integer not null, "
                 + "FOREIGN KEY(recipe_id) REFERENCES "
@@ -29,7 +30,7 @@ public class ImageData extends Data {
 
     @Override
     public String getTableName() {
-        return "IMAGES";
+        return TABLE_NAME;
     }
 
     public static ImageData getInstance() {
@@ -39,19 +40,24 @@ public class ImageData extends Data {
         return instance;
     }
 
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        return (Class<T>) Image.class;
+    }
+
     public void createImages(List<Image> images, long recipeId) {
         for (Image image: images) {
             ContentValues values = new ContentValues();
             values.put("name", image.getName());
             values.put("recipe_id", recipeId);
 
-            database.insert(getTableName(), null, values);
+            database.insert(TABLE_NAME, null, values);
         }
     }
 
     public List<Image> getImagesWithRecipe(long recipeId) {
         Cursor cursor = database.rawQuery(
-                "select * from " + getTableName() + " where recipe_id=" + recipeId, null);
+                "select * from " + TABLE_NAME + " where recipe_id=" + recipeId, null);
         cursor.moveToFirst();
         List<Image> images = new ArrayList<Image>();
         while(!cursor.isAfterLast()) {
@@ -64,8 +70,4 @@ public class ImageData extends Data {
         return images;
     }
 
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        return (Class<T>) Image.class;
-    }
 }

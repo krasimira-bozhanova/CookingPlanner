@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,11 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.data.tables.ContentData;
-import bg.fmi.cookingplanner.model.Content;
-import bg.fmi.cookingplanner.model.Content.ContentUnit;
-import bg.fmi.cookingplanner.model.FoodType;
-import bg.fmi.cookingplanner.model.Measurement;
+import bg.fmi.cookingplanner.data.access.ContentData;
+import bg.fmi.cookingplanner.data.model.Content;
+import bg.fmi.cookingplanner.data.model.Content.ContentUnit;
+import bg.fmi.cookingplanner.data.model.FoodType;
+import bg.fmi.cookingplanner.data.model.Measurement;
 import bg.fmi.cookingplanner.recipe.RecipeFragment;
 import bg.fmi.cookingplanner.util.ResourcesUtils;
 

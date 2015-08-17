@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.data.tables.RecipeData;
-import bg.fmi.cookingplanner.model.Image;
+import bg.fmi.cookingplanner.data.access.RecipeData;
+import bg.fmi.cookingplanner.data.model.Image;
 import bg.fmi.cookingplanner.recipe.RecipeFragment;
 import bg.fmi.cookingplanner.util.AlertMessage;
 import bg.fmi.cookingplanner.util.ResourcesUtils;
@@ -50,7 +50,7 @@ public class RecipeSummaryFragment extends RecipeFragment {
         return view;
     }
 
-    class ImageViewAdapter extends ArrayAdapter<Image> {
+    private class ImageViewAdapter extends ArrayAdapter<Image> {
 
         List<Image> mItems;
         LayoutInflater mInflater;
@@ -120,17 +120,16 @@ public class RecipeSummaryFragment extends RecipeFragment {
 
             @Override
             public void onClick(View v) {
-                int result = RecipeData.getInstance().addToFavourites(recipe);
-                String message = "The recipe is succesfully added to favourites";
-                if (result == 0) {
-                    message = "There is a problem with adding the recipe to favourites";
-                } else {
-                    ViewGroup parent = layout;
-                    parent.removeView(addToFavourites);
-                    parent.addView(removeFromFavourites);
-                }
+            int result = RecipeData.getInstance().addToFavourites(recipe);
+            String message = "The recipe is succesfully added to favourites";
+            if (result == 0) {
+                message = "There is a problem with adding the recipe to favourites";
+            } else {
+                layout.removeView(addToFavourites);
+                layout.addView(removeFromFavourites);
+            }
 
-                AlertMessage.show(getActivity(), message);
+            AlertMessage.show(getActivity(), message);
             }
 
         });
@@ -139,39 +138,36 @@ public class RecipeSummaryFragment extends RecipeFragment {
 
             @Override
             public void onClick(View v) {
-                int result = RecipeData.getInstance().removeFromFavourites(recipe);
-                String message = "The recipe is succesfully removed from favourites";
-                if (result == 0) {
-                    message = "There is a problem with removing the recipe from favourites";
-                } else {
-                        ViewGroup parent = layout;
-                        parent.removeView(removeFromFavourites);
-                        parent.addView(addToFavourites);
-                }
+            int result = RecipeData.getInstance().removeFromFavourites(recipe);
+            String message = "The recipe is succesfully removed from favourites";
+            if (result == 0) {
+                message = "There is a problem with removing the recipe from favourites";
+            } else {
+                layout.removeView(removeFromFavourites);
+                layout.addView(addToFavourites);
+            }
 
-                AlertMessage.show(getActivity(), message);
+            AlertMessage.show(getActivity(), message);
             }
 
         });
 
-
         layout.addView(recipe.isFavourite() ? removeFromFavourites : addToFavourites);
-
     }
 
     private View getRecipeDetailsView(LayoutInflater inflater, String text,
             String imageName) {
         View view = inflater.inflate(R.layout.small_image_text_layout, null);
-        ImageView imageView = (ImageView) view
-                .findViewById(R.id.recipeListImageView);
+
         TextView textView = (TextView) view
                 .findViewById(R.id.recipeListTextView);
-
         textView.setText(text);
 
-        String mDrawableName = imageName;
-        Drawable drawable = ResourcesUtils.getDrawable(getActivity(), mDrawableName);
+        ImageView imageView = (ImageView) view
+                .findViewById(R.id.recipeListImageView);
+        Drawable drawable = ResourcesUtils.getDrawable(getActivity(), imageName);
         imageView.setImageDrawable(drawable);
+
         return view;
     }
 }

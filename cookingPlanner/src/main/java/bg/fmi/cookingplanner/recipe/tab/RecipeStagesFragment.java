@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Description;
+import bg.fmi.cookingplanner.data.model.Description;
 import bg.fmi.cookingplanner.recipe.RecipeFragment;
 
 public class RecipeStagesFragment extends RecipeFragment {

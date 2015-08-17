@@ -1,6 +1,5 @@
 package bg.fmi.cookingplanner.search;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -12,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.data.tables.IngredientData;
-import bg.fmi.cookingplanner.data.tables.RecipeData;
-import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.data.access.IngredientData;
+import bg.fmi.cookingplanner.data.access.RecipeData;
+import bg.fmi.cookingplanner.data.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Recipe;
 import bg.fmi.cookingplanner.results.ResultsListActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.existing.ExistingIngredientsView;

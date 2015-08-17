@@ -1,13 +1,14 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.model.Description;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.Description;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class DescriptionData extends Data {
 
     private static DescriptionData instance;
+    private static final String TABLE_NAME = "DESCRIPTIONS";
 
     private DescriptionData() {
 
@@ -16,7 +17,7 @@ public class DescriptionData extends Data {
     @Override
     public String getCreateTableStatement() {
         return "CREATE TABLE IF NOT EXISTS "
-                + getTableName() + "(_id integer primary key autoincrement, "
+                + TABLE_NAME + "(_id integer primary key autoincrement, "
                 + "stage text not null,"
                 + "recipe_id integer not null, "
                 + "FOREIGN KEY(recipe_id) REFERENCES "
@@ -26,7 +27,13 @@ public class DescriptionData extends Data {
 
     @Override
     public String getTableName() {
-        return "DESCRIPTIONS";
+        return TABLE_NAME;
+    }
+
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        // TODO Auto-generated method stub
+        return (Class<T>) Description.class;
     }
 
     public static DescriptionData getInstance() {
@@ -41,14 +48,14 @@ public class DescriptionData extends Data {
             ContentValues values = new ContentValues();
             values.put("stage", stage);
             values.put("recipe_id", recipeId);
-            database.insert(getTableName(), null, values);
+            database.insert(TABLE_NAME, null, values);
         }
     }
 
     public Description getDescriptionWithRecipe(long recipeId) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
+                + TABLE_NAME
                 + " where recipe_id="
                 + recipeId
                 + " order by _id asc", null);
@@ -64,10 +71,6 @@ public class DescriptionData extends Data {
         return new Description(stages);
     }
 
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        // TODO Auto-generated method stub
-        return (Class<T>) Description.class;
-    }
+
 
 }

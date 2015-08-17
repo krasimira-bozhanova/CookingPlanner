@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Ingredient;
 
 
 public class EditTextViewAdapter extends ArrayAdapter<Ingredient> implements

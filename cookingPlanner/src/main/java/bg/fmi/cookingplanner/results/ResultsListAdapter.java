@@ -2,7 +2,6 @@ package bg.fmi.cookingplanner.results;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +15,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Image;
+import bg.fmi.cookingplanner.data.model.Image;
 import bg.fmi.cookingplanner.recipe.RecipeActivity;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.data.model.Recipe;
 import bg.fmi.cookingplanner.util.ResourcesUtils;
 
 public class ResultsListAdapter extends BaseAdapter {

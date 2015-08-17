@@ -12,16 +12,16 @@ import org.codehaus.jackson.type.JavaType;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import bg.fmi.cookingplanner.data.tables.ContentData;
-import bg.fmi.cookingplanner.data.tables.Data;
-import bg.fmi.cookingplanner.data.tables.DescriptionData;
-import bg.fmi.cookingplanner.data.tables.FoodTypeData;
-import bg.fmi.cookingplanner.data.tables.ImageData;
-import bg.fmi.cookingplanner.data.tables.IngredientData;
-import bg.fmi.cookingplanner.data.tables.MeasurementData;
-import bg.fmi.cookingplanner.data.tables.RecipeData;
-import bg.fmi.cookingplanner.data.tables.MealTypeData;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.access.ContentData;
+import bg.fmi.cookingplanner.data.access.Data;
+import bg.fmi.cookingplanner.data.access.DescriptionData;
+import bg.fmi.cookingplanner.data.access.FoodTypeData;
+import bg.fmi.cookingplanner.data.access.ImageData;
+import bg.fmi.cookingplanner.data.access.IngredientData;
+import bg.fmi.cookingplanner.data.access.MeasurementData;
+import bg.fmi.cookingplanner.data.access.RecipeData;
+import bg.fmi.cookingplanner.data.access.MealTypeData;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "COOKINGDB";

@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 
 import java.util.List;
@@ -7,16 +7,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Measurement;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.Measurement;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class MeasurementData extends Data {
 
     private static MeasurementData instance;
+    private static final String TABLE_NAME = "MEASUREMENTS";
 
     @Override
     public String getCreateTableStatement() {
-        return "CREATE TABLE IF NOT EXISTS " + getTableName()
+        return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                 + "(_id integer primary key autoincrement, "
                 + "name text not null"
                 + ");";
@@ -24,7 +25,7 @@ public class MeasurementData extends Data {
 
     @Override
     public String getTableName() {
-        return "MEASUREMENTS";
+        return TABLE_NAME;
     }
 
     @Override
@@ -61,14 +62,14 @@ public class MeasurementData extends Data {
     public long createMeasurement(Measurement measurement) {
         ContentValues values = new ContentValues();
         values.put("name", measurement.getName());
-        long measurementId = database.insert(getTableName(), null, values);
+        long measurementId = database.insert(TABLE_NAME, null, values);
         return measurementId;
     }
 
     public Measurement getMeasurement(long id) {
         Cursor cursor = database.rawQuery(
                 "select * from "
-                + getTableName()
+                + TABLE_NAME
                 + " where _id=" + id, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -82,7 +83,7 @@ public class MeasurementData extends Data {
     public long getMeasurementId(Measurement measurement) {
         Cursor cursor = database.rawQuery(
                 "select _id from "
-                + getTableName()
+                + TABLE_NAME
                 + " where name='"
                 + measurement.getName() + "'", null);
         cursor.moveToFirst();

@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,20 +7,22 @@ import java.util.Map;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import bg.fmi.cookingplanner.model.Content;
-import bg.fmi.cookingplanner.model.Content.ContentUnit;
-import bg.fmi.cookingplanner.model.FoodType;
-import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.model.Measurement;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.Content;
+import bg.fmi.cookingplanner.data.model.Content.ContentUnit;
+import bg.fmi.cookingplanner.data.model.FoodType;
+import bg.fmi.cookingplanner.data.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Measurement;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public class ContentData extends Data {
 
     private static ContentData instance;
+    private static final String TABLE_NAME = "CONTENTS";
+
 
     @Override
     public String getCreateTableStatement() {
-        return "CREATE TABLE IF NOT EXISTS " + getTableName()
+        return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                 + "(_id integer primary key autoincrement, "
                 + "recipe_id integer not null, "
                 + "ingredient_id integer not null, " + "amount integer, "
@@ -45,8 +47,13 @@ public class ContentData extends Data {
         return instance;
     }
 
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        return (Class<T>) Content.class;
+    }
+
     public Content getContentWithRecipe(long recipeId) {
-        Cursor cursor = database.rawQuery("select * from " + getTableName()
+        Cursor cursor = database.rawQuery("select * from " + TABLE_NAME
                 + " where recipe_id=" + recipeId, null);
         cursor.moveToFirst();
         List<Content.ContentUnit> contentUnits = new ArrayList<Content.ContentUnit>();
@@ -115,7 +122,7 @@ public class ContentData extends Data {
                 values.put("amount", contentUnits[i].getAmount());
             }
 
-            contentIds[i] = database.insert(getTableName(), null, values);
+            contentIds[i] = database.insert(TABLE_NAME, null, values);
         }
         return contentIds;
     }
@@ -137,11 +144,6 @@ public class ContentData extends Data {
             contentForTypes.get(type).add(contentUnit);
         }
         return contentForTypes;
-    }
-
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        return (Class<T>) Content.class;
     }
 
 }

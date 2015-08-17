@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import antistatic.spinnerwheel.adapters.AbstractWheelTextAdapter;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Ingredient;
 
 public class IngredientsAdapter extends AbstractWheelTextAdapter {
     // Countries names

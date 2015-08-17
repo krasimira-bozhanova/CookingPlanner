@@ -1,9 +1,9 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import java.util.List;
 
 import android.database.sqlite.SQLiteDatabase;
-import bg.fmi.cookingplanner.model.Model;
+import bg.fmi.cookingplanner.data.model.Model;
 
 public abstract class Data {
 

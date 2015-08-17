@@ -6,7 +6,7 @@ import android.view.View;
 import java.util.List;
 
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.Ingredient;
 import bg.fmi.cookingplanner.search.SearchBinderActivity;
 import bg.fmi.cookingplanner.search.view.SearchIngredientsView;
 import bg.fmi.cookingplanner.search.view.existing.tags.TagListView;

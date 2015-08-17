@@ -1,4 +1,4 @@
-package bg.fmi.cookingplanner.data.tables;
+package bg.fmi.cookingplanner.data.access;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,21 +6,22 @@ import java.util.List;
 import android.content.ContentValues;
 import android.database.Cursor;
 import bg.fmi.cookingplanner.R;
-import bg.fmi.cookingplanner.model.Content;
-import bg.fmi.cookingplanner.model.Description;
-import bg.fmi.cookingplanner.model.Image;
-import bg.fmi.cookingplanner.model.Ingredient;
-import bg.fmi.cookingplanner.model.MealType;
-import bg.fmi.cookingplanner.model.Model;
-import bg.fmi.cookingplanner.model.Recipe;
+import bg.fmi.cookingplanner.data.model.Content;
+import bg.fmi.cookingplanner.data.model.Description;
+import bg.fmi.cookingplanner.data.model.Image;
+import bg.fmi.cookingplanner.data.model.Ingredient;
+import bg.fmi.cookingplanner.data.model.MealType;
+import bg.fmi.cookingplanner.data.model.Model;
+import bg.fmi.cookingplanner.data.model.Recipe;
 
 public class RecipeData extends Data {
 
     private static RecipeData instance;
+    private static final String TABLE_NAME = "RECIPES";
 
     @Override
     public String getCreateTableStatement() {
-        return "CREATE TABLE IF NOT EXISTS " + getTableName()
+        return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME
                 + " (_id integer primary key autoincrement, "
                 + "name text not null, " + "type_id integer not null, "
                 + "time integer not null, " + "servings integer, "
@@ -30,7 +31,7 @@ public class RecipeData extends Data {
 
     @Override
     public String getTableName() {
-        return "RECIPES";
+        return TABLE_NAME;
     }
 
     @Override
@@ -52,6 +53,16 @@ public class RecipeData extends Data {
         }
     }
 
+    @Override
+    public <T extends Model> Class<T> getModel() {
+        return (Class<T>) Recipe.class;
+    }
+
+    @Override
+    public int getResourceJson() {
+        return R.raw.recipes;
+    }
+
     public long createRecipe(Recipe recipe) {
 
         ContentValues values = new ContentValues();
@@ -62,7 +73,7 @@ public class RecipeData extends Data {
         values.put("servings", recipe.getServings());
         values.put("is_favourite", 0);
 
-        long recipe_id = database.insert(getTableName(), null, values);
+        long recipe_id = database.insert(TABLE_NAME, null, values);
         ImageData.getInstance().createImages(recipe.getImages(), recipe_id);
         ContentData.getInstance().createContent(recipe.getContent(), recipe_id);
         DescriptionData.getInstance().createDescription(
@@ -83,7 +94,7 @@ public class RecipeData extends Data {
         listIds.append(")");
         // Get all recipes with ingredients in the given list
         String query = "select * from "
-                + RecipeData.getInstance().getTableName() + " where _id in "
+                + TABLE_NAME + " where _id in "
                 + "(select recipe_id as recipeid from "
                 + ContentData.getInstance().getTableName()
                 + " where ingredient_id in " + listIds.toString()
@@ -105,7 +116,7 @@ public class RecipeData extends Data {
     }
 
     public Recipe getRecipeWithId(long id) {
-        Cursor cursor = database.rawQuery("select * from " + getTableName()
+        Cursor cursor = database.rawQuery("select * from " + TABLE_NAME
                 + " where _id=" + id, null);
 
         Recipe recipe = null;
@@ -118,7 +129,7 @@ public class RecipeData extends Data {
     }
 
     public List<Recipe> getFavouriteRecipes() {
-        Cursor cursor = database.rawQuery("select * from " + getTableName()
+        Cursor cursor = database.rawQuery("select * from " + TABLE_NAME
                 + " where is_favourite=1 ", null);
         List<Recipe> recipesResult = new ArrayList<Recipe>();
         cursor.moveToFirst();
@@ -132,7 +143,7 @@ public class RecipeData extends Data {
     }
 
     public List<Recipe> getAllRecipes() {
-        Cursor cursor = database.rawQuery("select * from " + getTableName(),
+        Cursor cursor = database.rawQuery("select * from " + TABLE_NAME,
                 null);
         List<Recipe> recipesResult = new ArrayList<Recipe>();
         cursor.moveToFirst();
@@ -143,6 +154,20 @@ public class RecipeData extends Data {
         }
         cursor.close();
         return recipesResult;
+    }
+
+    public int addToFavourites(Recipe recipe) {
+        String strFilter = "_id=" + recipe.getId();
+        ContentValues args = new ContentValues();
+        args.put("is_favourite", 1);
+        return database.update(TABLE_NAME, args, strFilter, null);
+    }
+
+    public int removeFromFavourites(Recipe recipe) {
+        String strFilter = "_id=" + recipe.getId();
+        ContentValues args = new ContentValues();
+        args.put("is_favourite", 0);
+        return database.update(TABLE_NAME, args, strFilter, null);
     }
 
     private Recipe constructRecipefFromCursor(Cursor cursor) {
@@ -161,29 +186,5 @@ public class RecipeData extends Data {
                 .getColumnIndex("is_favourite")) == 1 ? true : false;
         return new Recipe(id, name, description, content, time, images, mealType,
                 servings, isFavourite);
-    }
-
-    public int addToFavourites(Recipe recipe) {
-        String strFilter = "_id=" + recipe.getId();
-        ContentValues args = new ContentValues();
-        args.put("is_favourite", 1);
-        return database.update(getTableName(), args, strFilter, null);
-    }
-
-    public int removeFromFavourites(Recipe recipe) {
-        String strFilter = "_id=" + recipe.getId();
-        ContentValues args = new ContentValues();
-        args.put("is_favourite", 0);
-        return database.update(getTableName(), args, strFilter, null);
-    }
-
-    @Override
-    public <T extends Model> Class<T> getModel() {
-        return (Class<T>) Recipe.class;
-    }
-
-    @Override
-    public int getResourceJson() {
-        return R.raw.recipes;
     }
 }
