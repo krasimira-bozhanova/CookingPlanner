@@ -79,7 +79,7 @@
                 }
             ],
         "servings": "1",
-        "type":
+        "mealType":
             {
                 "name": "main course"
             }
@@ -154,7 +154,7 @@
                     "name": "mama_ritas_eggs_and_tomato_sause"
                 }
             ],
-        "type": 
+        "mealType":
             {
                 "name": "appetizer"
             },
@@ -260,7 +260,7 @@
                     "name": "farmers_breakfast_omlet"
                 }
             ],
-        "type":
+        "mealType":
             {
                 "name": "main course"
             },
@@ -366,7 +366,7 @@
             ]
         },
         "time": "35",
-        "type":
+        "mealType":
             { 
                 "name": "appetizer"
             },
@@ -523,7 +523,7 @@
             ]
         },
         "time": "100",
-        "type":
+        "mealType":
             {
                 "name": "dessert"
             },
