@@ -5,15 +5,13 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4" />
         <option name="gradleJvm" value="1.7" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/cookingPlanner" />
-            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/spinner" />
-            <option value="$PROJECT_DIR$/tagListView" />
           </set>
         </option>
       </GradleProjectSettings>

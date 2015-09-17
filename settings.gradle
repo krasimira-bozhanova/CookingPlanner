@@ -1,4 +1,2 @@
-include ':spinner'
-include ':tagListView'
-include ':library'
-include ':cookingPlanner'
+include ':cookingPlanner', ':spinnerWheel'
+project(':spinnerWheel').projectDir = new File('spinner')

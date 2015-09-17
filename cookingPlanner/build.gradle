@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "bg.androidcourse.cookingplanner"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 19
     }
 
@@ -16,12 +16,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
-    compile project(':spinner')
-    compile project(':tagListView')
-    compile project(':library')
-    compile 'com.android.support:support-v4:19.1.0'
-    compile files('libs/jackson-all-1.9.0.jar')
+    compile project(':spinnerWheel')
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.2'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.2'
+    compile 'com.j256.ormlite:ormlite-core:4.48'
 }

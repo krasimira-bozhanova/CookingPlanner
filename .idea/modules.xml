@@ -4,9 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CookingPlanner.iml" filepath="$PROJECT_DIR$/CookingPlanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/cookingPlanner/cookingPlanner.iml" filepath="$PROJECT_DIR$/cookingPlanner/cookingPlanner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spinner/spinner.iml" filepath="$PROJECT_DIR$/spinner/spinner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tagListView/tagListView.iml" filepath="$PROJECT_DIR$/tagListView/tagListView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spinner/spinnerWheel.iml" filepath="$PROJECT_DIR$/spinner/spinnerWheel.iml" />
     </modules>
   </component>
 </project>

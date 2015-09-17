@@ -4,8 +4,7 @@
 .gradle
 captures/
 build/
-library/
 spinner/
-tagListView/
+MultiTagView/
 cookingPlanner/build
 cookingPlanner/libs
