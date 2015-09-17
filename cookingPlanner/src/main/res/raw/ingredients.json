@@ -30,7 +30,7 @@
         "name":"eggs",
         "type":
         {
-            "name": "dairy"
+            "name": "meats and eggs"
         }
     },
     {
@@ -55,41 +55,41 @@
     {
         "name":"chicken legs",
         "type": {
-            "name":"meats"
+            "name":"meats and eggs"
             }
     },
     {
         "name":"chicken breasts",
         "type": {
-            "name":"meats"
+            "name":"meats and eggs"
             }
     },
     {
         "name":"pork",
         "type":
         {
-            "name":"meats"
+            "name":"meats and eggs"
         }
     },
     {
         "name":"olive oil",
         "type":
         {
-            "name":"others"
+            "name":"oil"
         }
     },
     {
         "name":"sunflower oil",
         "type":
         {
-            "name":"others"
+            "name":"oil"
             }
     },
     {
         "name":"almonds",
         "type":
         {
-            "name":"others"
+            "name":"nuts"
             }
     },
     {
@@ -219,13 +219,13 @@
     {
         "name":"minced meat",
         "type": {
-            "name": "meats"
+            "name": "meats and eggs"
         }
     },
     {
         "name":"tomatoe juice",
         "type":{
-            "name": "others"
+            "name": "vegetables"
         }
     },
     {
@@ -321,7 +321,7 @@
     {
         "name":"green beans",
         "type": {
-            "name": "vegetables"
+            "name": "beans and cereal"
         }
     },
     {
@@ -385,9 +385,9 @@
         }
     },
     {
-        "name":"peanut",
+        "name":"peanuts",
         "type":{
-            "name": "others"
+            "name": "nuts"
         }
     },
     {
@@ -399,7 +399,7 @@
     {
         "name":"hazelnuts",
         "type":{
-            "name": "others"
+            "name": "nuts"
         }
     },
     {
@@ -429,7 +429,7 @@
     {
         "name":"bacon",
         "type": {
-            "name": "meats"
+            "name": "meats and eggs"
         }
     },   
     {
@@ -441,7 +441,7 @@
     {
         "name":"corn",
         "type":{
-            "name": "others"
+            "name": "beans and cereal"
         }
     },
     {
@@ -506,14 +506,14 @@
     },
     {
         "name":"baking soda",
-        "type":     {
+        "type": {
             "name": "baking"
         }
     },
     {
         "name":"linguine pasta",
-        "type":     {
-            "name": "others"
+        "type": {
+            "name": "pasta"
         }
     }
 ]

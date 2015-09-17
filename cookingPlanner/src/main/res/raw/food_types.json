@@ -24,7 +24,7 @@
 		"imageName": "dairy"
 	},
 	{
-		"name": "meats",
+		"name": "meats and eggs",
 		"imageName": "meats"
 	},
 	{
@@ -40,8 +40,16 @@
 	    "imageName": "nuts"
 
 	},
+  	{
+		"name": "oil",
+		"imageName": "oil"
+	},
     {
-        "name": "others",
-        "imageName": "others"
+      "name": "beans and cereal",
+      "imageName": "cereal"
+    },
+    {
+      "name": "pasta",
+      "imageName": "pasta"
     }
 ]
