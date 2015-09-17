@@ -5,4 +5,4 @@ Cooking Planner is an application for Android which helps you decide what to coo
 
 ## License
 
-
+[The MIT License (MIT)](http://www.opensource.org/licenses/mit-license.html)
