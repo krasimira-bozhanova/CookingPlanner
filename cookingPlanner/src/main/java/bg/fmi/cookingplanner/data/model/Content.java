@@ -1,6 +1,7 @@
 package bg.fmi.cookingplanner.data.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Content extends Model {
 
@@ -8,20 +9,20 @@ public class Content extends Model {
      *
      */
     private static final long serialVersionUID = 1L;
-    private ContentUnit[] contentUnits;
+    private List<ContentUnit> contentUnits;
 
     public Content() {
     }
 
-    public Content(ContentUnit[] contentUnits) {
+    public Content(List<ContentUnit> contentUnits) {
         this.contentUnits = contentUnits;
     }
 
-    public ContentUnit[] getContentUnits() {
+    public List<ContentUnit> getContentUnits() {
         return contentUnits;
     }
 
-    public void setContentUnits(ContentUnit[] contentUnits) {
+    public void setContentUnits(List<ContentUnit> contentUnits) {
         this.contentUnits = contentUnits;
     }
 

@@ -92,35 +92,33 @@ public class ContentData extends Data {
             contentUnits.add(contentUnit);
             cursor.moveToNext();
         }
-        int arraySize = contentUnits.size();
-        Content.ContentUnit[] contentUnitsArray = contentUnits
-                .toArray(new Content.ContentUnit[arraySize]);
-        content.setContentUnits(contentUnitsArray);
+        content.setContentUnits(contentUnits);
         return content;
     }
 
     public long[] createContent(Content content, long recipe_id) {
         ContentValues values = new ContentValues();
-        int contentLength = content.getContentUnits().length;
+        int contentLength = content.getContentUnits().size();
         long[] contentIds = new long[contentLength];
-        Content.ContentUnit[] contentUnits = content.getContentUnits();
+        List<Content.ContentUnit> contentUnits = content.getContentUnits();
 
         for (int i = 0; i < contentLength; i++) {
+            Content.ContentUnit currentContentUnit = contentUnits.get(i);
             values.put("recipe_id", recipe_id);
             long ingredientId = IngredientData.getInstance()
-                    .getIngredient(contentUnits[i].getIngredient())
+                    .getIngredient(currentContentUnit.getIngredient())
                     .getId();
             values.put("ingredient_id", ingredientId);
             IngredientData.getInstance().increaseRating(ingredientId);
-            if (contentUnits[i].getMeasurement() != null) {
+            if (currentContentUnit.getMeasurement() != null) {
                 long measurementId = MeasurementData.getInstance()
-                        .getMeasurementId(contentUnits[i].getMeasurement());
+                        .getMeasurementId(currentContentUnit.getMeasurement());
                 values.put("measurement_id", measurementId);
             }
-            values.put("description", contentUnits[i].getDescription());
+            values.put("description", currentContentUnit.getDescription());
 
-            if (contentUnits[i].getAmount() != -1) {
-                values.put("amount", contentUnits[i].getAmount());
+            if (currentContentUnit.getAmount() != -1) {
+                values.put("amount", currentContentUnit.getAmount());
             }
 
             contentIds[i] = database.insert(TABLE_NAME, null, values);
