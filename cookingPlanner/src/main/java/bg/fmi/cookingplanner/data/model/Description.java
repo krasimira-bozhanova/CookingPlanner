@@ -1,23 +1,25 @@
 package bg.fmi.cookingplanner.data.model;
 
 
+import java.util.List;
+
 public class Description extends Model {
 
     private static final long serialVersionUID = 1L;
-    private String[] stages;
+    private List<String> stages;
 
     public Description() {
 
     }
 
-    public Description(String[] stages) {
+    public Description(List<String> stages) {
         this.stages = stages;
     }
 
-    public String[] getStages() {
+    public List<String> getStages() {
         return stages;
     }
-    public void setStages(String[] stages) {
+    public void setStages(List<String> stages) {
         this.stages = stages;
     }
 

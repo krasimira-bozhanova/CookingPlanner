@@ -2,6 +2,10 @@ package bg.fmi.cookingplanner.data.access;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import bg.fmi.cookingplanner.data.model.Description;
 import bg.fmi.cookingplanner.data.model.Model;
 
@@ -60,11 +64,10 @@ public class DescriptionData extends Data {
                 + recipeId
                 + " order by _id asc", null);
         cursor.moveToFirst();
-        String[] stages = new String[cursor.getCount()];
-        int index = 0;
+        List<String> stages = new ArrayList<String>();
         while(!cursor.isAfterLast()) {
             String stage = cursor.getString(cursor.getColumnIndex("stage"));
-            stages[index++] = stage;
+            stages.add(stage);
             cursor.moveToNext();
         }
         cursor.close();
