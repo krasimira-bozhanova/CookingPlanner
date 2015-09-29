@@ -1,26 +1,27 @@
 package bg.fmi.cookingplanner.data;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.JavaType;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
 import bg.fmi.cookingplanner.data.access.ContentData;
 import bg.fmi.cookingplanner.data.access.Data;
 import bg.fmi.cookingplanner.data.access.DescriptionData;
 import bg.fmi.cookingplanner.data.access.FoodTypeData;
 import bg.fmi.cookingplanner.data.access.ImageData;
 import bg.fmi.cookingplanner.data.access.IngredientData;
+import bg.fmi.cookingplanner.data.access.MealTypeData;
 import bg.fmi.cookingplanner.data.access.MeasurementData;
 import bg.fmi.cookingplanner.data.access.RecipeData;
-import bg.fmi.cookingplanner.data.access.MealTypeData;
 import bg.fmi.cookingplanner.data.model.Model;
 
 public class DatabaseHelper extends SQLiteOpenHelper {

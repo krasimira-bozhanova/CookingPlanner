@@ -1,10 +1,11 @@
 package bg.fmi.cookingplanner.data.access;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.ContentValues;
-import android.database.Cursor;
 import bg.fmi.cookingplanner.data.model.Image;
 import bg.fmi.cookingplanner.data.model.Model;
 

@@ -1,12 +1,13 @@
 package bg.fmi.cookingplanner.search.view.missing.wheel;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.List;
+
 import antistatic.spinnerwheel.adapters.AbstractWheelTextAdapter;
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.model.Ingredient;

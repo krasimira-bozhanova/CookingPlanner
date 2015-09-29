@@ -1,16 +1,17 @@
 package bg.fmi.cookingplanner.results;
 
-import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.access.MealTypeData;
 import bg.fmi.cookingplanner.data.model.MealType;

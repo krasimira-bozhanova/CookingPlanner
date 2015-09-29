@@ -1,13 +1,14 @@
 package bg.fmi.cookingplanner.recipe;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.recipe.tab.RecipeContentFragment;
 import bg.fmi.cookingplanner.recipe.tab.RecipeStagesFragment;

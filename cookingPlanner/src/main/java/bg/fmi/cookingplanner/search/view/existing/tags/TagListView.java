@@ -1,13 +1,14 @@
 package bg.fmi.cookingplanner.search.view.existing.tags;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.OnHierarchyChangeListener;
+
+import java.util.ArrayList;
+
 import bg.fmi.cookingplanner.R;
 
 /**

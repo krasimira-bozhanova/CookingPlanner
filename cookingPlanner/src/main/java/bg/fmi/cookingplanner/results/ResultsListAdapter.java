@@ -16,8 +16,8 @@ import java.util.List;
 
 import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.model.Image;
-import bg.fmi.cookingplanner.recipe.RecipeActivity;
 import bg.fmi.cookingplanner.data.model.Recipe;
+import bg.fmi.cookingplanner.recipe.RecipeActivity;
 import bg.fmi.cookingplanner.util.ResourcesUtils;
 
 public class ResultsListAdapter extends BaseAdapter {

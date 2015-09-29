@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
+
 import bg.fmi.cookingplanner.R;
 
 public class TagView extends EditText implements OnClickListener,

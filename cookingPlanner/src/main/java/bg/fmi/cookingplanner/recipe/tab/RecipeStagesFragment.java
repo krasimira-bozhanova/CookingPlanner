@@ -23,8 +23,8 @@ public class RecipeStagesFragment extends RecipeFragment {
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.recipeLinearLayout);
         Description description = getRecipe().getDescription();
 
-        for (int i = 0; i < description.getStages().length; i++) {
-            String stage = description.getStages()[i];
+        for (int i = 0; i < description.getStages().size(); i++) {
+            String stage = description.getStages().get(i);
             TextView textView = (TextView) inflater.inflate(R.layout.recipe_stage, null);
             textView.setText(Integer.toString(i + 1) + ". " + stage);
             linearLayout.addView(textView);
