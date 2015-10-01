@@ -14,7 +14,7 @@ import bg.fmi.cookingplanner.data.model.FoodType;
 import bg.fmi.cookingplanner.data.model.Ingredient;
 import bg.fmi.cookingplanner.data.model.Model;
 
-public class IngredientData extends Data {
+public class IngredientData extends Data<Ingredient> {
 
     private static IngredientData instance;
 
@@ -58,9 +58,9 @@ public class IngredientData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
+    public Class<Ingredient> getModel() {
         // TODO Auto-generated method stub
-        return (Class<T>) Ingredient.class;
+        return Ingredient.class;
     }
 
     @Override

@@ -15,7 +15,7 @@ import bg.fmi.cookingplanner.data.model.MealType;
 import bg.fmi.cookingplanner.data.model.Model;
 import bg.fmi.cookingplanner.data.model.Recipe;
 
-public class RecipeData extends Data {
+public class RecipeData extends Data<Recipe> {
 
     private static RecipeData instance;
     private static final String TABLE_NAME = "RECIPES";
@@ -55,8 +55,8 @@ public class RecipeData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
-        return (Class<T>) Recipe.class;
+    public Class<Recipe> getModel() {
+        return Recipe.class;
     }
 
     @Override

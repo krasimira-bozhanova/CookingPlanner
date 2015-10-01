@@ -9,7 +9,7 @@ import java.util.List;
 import bg.fmi.cookingplanner.data.model.Image;
 import bg.fmi.cookingplanner.data.model.Model;
 
-public class ImageData extends Data {
+public class ImageData extends Data<Image> {
 
     private static ImageData instance;
     private static final String TABLE_NAME = "IMAGES";
@@ -42,8 +42,8 @@ public class ImageData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
-        return (Class<T>) Image.class;
+    public Class<Image> getModel() {
+        return Image.class;
     }
 
     public void createImages(List<Image> images, long recipeId) {

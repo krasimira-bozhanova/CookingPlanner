@@ -11,7 +11,7 @@ import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.model.Measurement;
 import bg.fmi.cookingplanner.data.model.Model;
 
-public class MeasurementData extends Data {
+public class MeasurementData extends Data<Measurement> {
 
     private static MeasurementData instance;
     private static final String TABLE_NAME = "MEASUREMENTS";
@@ -35,9 +35,9 @@ public class MeasurementData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
+    public Class<Measurement> getModel() {
         // TODO Auto-generated method stub
-        return (Class<T>) Measurement.class;
+        return Measurement.class;
     }
 
     @Override

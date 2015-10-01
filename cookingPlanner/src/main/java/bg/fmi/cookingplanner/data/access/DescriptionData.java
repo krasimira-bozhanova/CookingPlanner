@@ -9,7 +9,7 @@ import java.util.List;
 import bg.fmi.cookingplanner.data.model.Description;
 import bg.fmi.cookingplanner.data.model.Model;
 
-public class DescriptionData extends Data {
+public class DescriptionData extends Data<Description> {
 
     private static DescriptionData instance;
     private static final String TABLE_NAME = "DESCRIPTIONS";
@@ -35,9 +35,9 @@ public class DescriptionData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
+    public Class<Description> getModel() {
         // TODO Auto-generated method stub
-        return (Class<T>) Description.class;
+        return Description.class;
     }
 
     public static DescriptionData getInstance() {

@@ -10,7 +10,7 @@ import bg.fmi.cookingplanner.R;
 import bg.fmi.cookingplanner.data.model.FoodType;
 import bg.fmi.cookingplanner.data.model.Model;
 
-public class FoodTypeData extends Data {
+public class FoodTypeData extends Data<FoodType> {
 
     private static FoodTypeData instance;
     private static final String TABLE_NAME = "FOODTYPES";
@@ -46,9 +46,9 @@ public class FoodTypeData extends Data {
     }
 
     @Override
-    public <T extends Model> Class<T> getModel() {
+    public Class<FoodType> getModel() {
         // TODO Auto-generated method stub
-        return (Class<T>) FoodType.class;
+        return FoodType.class;
     }
 
     @Override

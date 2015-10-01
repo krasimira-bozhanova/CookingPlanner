@@ -6,7 +6,7 @@ import java.util.List;
 
 import bg.fmi.cookingplanner.data.model.Model;
 
-public abstract class Data {
+public abstract class Data<T extends Model> {
 
     protected static SQLiteDatabase database;
 
@@ -31,7 +31,7 @@ public abstract class Data {
         throw new UnsupportedOperationException();
     }
 
-    public abstract <T extends Model> Class<T> getModel();
+    public abstract Class<T> getModel();
 
     public static void setDatabase(SQLiteDatabase db) {
         database = db;
